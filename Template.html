@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apresentação de Resultados Q1 2026 | Lado Bom &amp; Crédito Real</title>
+  <meta name="description" content="Apresentação executiva e analítica Q1 2026 com comparação Ano a Ano">
+  <link rel="stylesheet" href="src/styles.css?v=2.2">
+  <!-- Plotly.js CDN -->
+  <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script>
+</head>
+<body class="cover-active">
+
+  <!-- PRESENTATION MAIN CONTAINER -->
+  <div class="presentation-container">
+
+    <!-- HUD LOGO OVERLAY (Dynamic branding on top right) -->
+    <img src="src/assets/slide_1_86.png" alt="Lado Bom Seguros Logo" class="hud-logo">
+
+    <!-- HUD NAVIGATION BUTTONS (Bottom right) -->
+    <div class="hud-nav-buttons">
+      <button class="nav-btn" id="fullscreen-btn" title="Tela Cheia" aria-label="Alternar tela cheia">
+        <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+      </button>
+      <button class="nav-btn" id="prev-btn" title="Slide Anterior" aria-label="Slide anterior" disabled>
+        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      </button>
+      <button class="nav-btn" id="next-btn" title="Próximo Slide" aria-label="Próximo slide">
+        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+      </button>
+    </div>
+
+    <!-- HUD PROGRESS & STATUS (Bottom Left) -->
+    <div class="hud-footer">
+      <div class="hud-progress-indicators" id="progress-dots">
+        <!-- Progress dots will be dynamically created here -->
+      </div>
+      <div class="hud-slide-number" id="slide-num">01 / 22</div>
+    </div>
+
+    <!-- FLOATING KEYBOARD NAVIGATION HINT -->
+    <div class="keyboard-hint" id="keyboard-hint">
+      <span>Use</span>
+      <kbd>←</kbd>
+      <kbd>→</kbd>
+      <span>ou</span>
+      <kbd>Espaço</kbd>
+      <span>para navegar</span>
+    </div>
+
+    <!-- SIDEBAR NAVIGATION MENU (Drawer Toggle top left) -->
+    <button class="drawer-toggle" id="drawer-toggle" title="Menu de Slides" aria-label="Abrir menu de navegação">
+      <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+    </button>
+
+    <div class="nav-backdrop" id="drawer-backdrop"></div>
+    
+    <nav class="nav-drawer" id="nav-drawer">
+      <div class="drawer-header">
+        <h3 class="drawer-title">Apresentação Q1 2026</h3>
+        <button class="drawer-close" id="drawer-close" title="Fechar Menu">
+          <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </div>
+      <ul class="drawer-menu">
+        <li class="drawer-menu-item active" data-slide="0"><span class="drawer-item-num">01</span> Capa</li>
+        <li class="drawer-menu-item" data-slide="1"><span class="drawer-item-num">02</span> 1 Ano de Lado Bom</li>
+                <li class="drawer-menu-item" data-slide="2"><span class="drawer-item-num">03</span> Composição Societária</li>
+        <li class="drawer-menu-item" data-slide="3"><span class="drawer-item-num">04</span> Pessoas Chaves</li>
+        <li class="drawer-menu-item" data-slide="4"><span class="drawer-item-num">05</span> Principais Projetos</li>
+        <li class="drawer-menu-item" data-slide="5"><span class="drawer-item-num">06</span> Contexto da Parceria</li>
+        
+        <!-- Bloco 2.1: Realizados & Metas -->
+        <li class="drawer-menu-item" data-slide="6"><span class="drawer-item-num">07</span> Q1: Resultado Consolidado</li>
+        <li class="drawer-menu-item" data-slide="7"><span class="drawer-item-num">08</span> Q1: Evolução por Vertical</li>
+        <li class="drawer-menu-item" data-slide="8"><span class="drawer-item-num">09</span> Q1: Meta x Realizado</li>
+        <li class="drawer-menu-item" data-slide="9"><span class="drawer-item-num">10</span> Q1: Atingimento da Meta</li>
+        
+        <!-- Bloco 2.2: YoY Comparativo -->
+        <li class="drawer-menu-item" data-slide="10"><span class="drawer-item-num">11</span> YoY: Comparativo Vertical</li>
+        <li class="drawer-menu-item" data-slide="11"><span class="drawer-item-num">12</span> YoY: Variação por Mês</li>
+        
+        <!-- Bloco 2.3: Aprofundamento Q1 -->
+        <li class="drawer-menu-item" data-slide="17"><span class="drawer-item-num">13</span> Q1: Composição por Produto</li>
+        
+        <li class="drawer-menu-item" data-slide="22"><span class="drawer-item-num">14</span> Fechamento e Próximos Passos</li>
+      </ul>
+    </nav>
+
+    <!-- ==========================================================================
+         SLIDESHOW SLIDES (16:9 Viewports)
+         ========================================================================== -->
+
+    <!-- SLIDE 01: CAPA -->
+    <section class="slide cover-theme active" id="slide-1">
+      <div class="slide-content">
+        <div></div> <!-- Spacing helper -->
+        <div>
+          <span class="slide-subtitle">PERFORMANCE | Lado Bom &amp; Crédito Real</span>
+          <h1 class="slide-title">RESULTADOS Q1 2026</h1>
+          <p class="slide-description">RESULTADOS E PERSPECTIVAS</p>
+        </div>
+        
+        <div class="cover-logos">
+          <img src="src/assets/slide_1_86.png" alt="Lado Bom Seguros Logo">
+          <div class="cover-line"></div>
+          <img src="src/assets/slide_1_84.png" alt="Crédito Real Logo">
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 02: INSTITUTIONAL & AWARDS -->
+    <section class="slide" id="slide-2">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">1 Ano de Joint Venture</span>
+          <h2 class="slide-title">1 Ano de Lado Bom Seguros!</h2>
+        </header>
+
+        <div class="about-grid">
+          <div class="about-image-wrapper">
+            <img src="src/assets/slide_2_94.jpg" alt="Equipe Lado Bom Seguros" class="about-image">
+          </div>
+
+          <div class="about-info">
+            <p class="about-intro-text">
+              Somos uma joint venture entre o <strong>Grupo Rede Vistorias</strong> e o <strong>Grupo Brognoli</strong>, e temos como propósito digitalizar e desburocratizar o setor de seguros, com foco inicial no mercado imobiliário.
+            </p>
+
+            <div class="stats-circles" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 15px;">
+              <div class="stat-circle" style="background-color: #FFD700; border-radius: 50%; aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div style="color: var(--brand-purple-dark); font-family: 'Roboto Condensed', sans-serif; font-size: 24px; font-weight: 800; line-height: 1.1;">+15 anos</div>
+                <div style="color: var(--brand-purple-dark); font-size: 11px; font-weight: 500; margin-top: 4px; line-height: 1.2;">de experiência<br>em seguros</div>
+              </div>
+              <div class="stat-circle" style="background-color: #FFD700; border-radius: 50%; aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div style="color: var(--brand-purple-dark); font-family: 'Roboto Condensed', sans-serif; font-size: 24px; font-weight: 800; line-height: 1.1;">+400</div>
+                <div style="color: var(--brand-purple-dark); font-size: 11px; font-weight: 500; margin-top: 4px; line-height: 1.2;">imobiliárias<br>parceiras</div>
+              </div>
+              <div class="stat-circle" style="background-color: #FFD700; border-radius: 50%; aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div style="color: var(--brand-purple-dark); font-family: 'Roboto Condensed', sans-serif; font-size: 24px; font-weight: 800; line-height: 1.1;">+100</div>
+                <div style="color: var(--brand-purple-dark); font-size: 11px; font-weight: 500; margin-top: 4px; line-height: 1.2;">escritórios<br>regionais</div>
+              </div>
+              <div class="stat-circle" style="background-color: #FFD700; border-radius: 50%; aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div style="color: var(--brand-purple-dark); font-family: 'Roboto Condensed', sans-serif; font-size: 24px; font-weight: 800; line-height: 1.1;">+50K</div>
+                <div style="color: var(--brand-purple-dark); font-size: 11px; font-weight: 500; margin-top: 4px; line-height: 1.2;">apólices emitidas<br>por ano</div>
+              </div>
+              <div class="stat-circle" style="background-color: #FFD700; border-radius: 50%; aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div style="color: var(--brand-purple-dark); font-family: 'Roboto Condensed', sans-serif; font-size: 24px; font-weight: 800; line-height: 1.1;">R$ 12MM</div>
+                <div style="color: var(--brand-purple-dark); font-size: 11px; font-weight: 500; margin-top: 4px; line-height: 1.2;">em indenizações<br>pagas por ano</div>
+              </div>
+              <div class="stat-circle" style="background-color: #FFD700; border-radius: 50%; aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                <div style="color: var(--brand-purple-dark); font-family: 'Roboto Condensed', sans-serif; font-size: 22px; font-weight: 800; line-height: 1.1;">R$ 4MM</div>
+                <div style="color: var(--brand-purple-dark); font-size: 11px; font-weight: 500; margin-top: 4px; line-height: 1.2;">em comissões<br>por ano</div>
+              </div>
+            </div>
+
+            <div class="awards-section">
+              <h3 class="awards-title">EM MENOS DE 1 ANO RECEBEMOS 2 PRÊMIOS:</h3>
+              <div class="awards-grid">
+                <div class="award-badge-card">
+                  <div class="award-icon-wrapper" title="Destaque Elite">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v3c0 2.2 1.8 4 4 4h.7c.7 1.7 2.1 3 3.8 3.4V19H9v2h6v-2h-2.5v-1.6c1.7-.4 3.1-1.7 3.8-3.4h.7c2.2 0 4-1.8 4-4V7c0-1.1-.9-2-2-2zm-12 5c-1.1 0-2-.9-2-2V7h2v3H7zm12-2c0 1.1-.9 2-2 2h-2V7h2v3h2z"/>
+                    </svg>
+                  </div>
+                  <span class="award-text">Corretora Elite Porto de Consórcio</span>
+                </div>
+                <div class="award-badge-card">
+                  <div class="award-icon-wrapper" title="Maior Crescimento">
+                    <svg viewBox="0 0 24 24">
+                      <path d="M12 2l2.5 5.5H20l-4.5 4 2 6-5.5-3.5L6.5 18.5l2-6L4 7.5h5.5z"/>
+                      <circle cx="12" cy="11.5" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                  </div>
+                  <span class="award-text">2ª maior corretora do Sul do Brasil (Porto)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- SLIDE: COMPOSIÇÃO SOCIETÁRIA -->
+    <section class="slide" id="slide-societaria">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Estrutura Corporativa</span>
+          <h2 class="slide-title">Composição Societária</h2>
+        </header>
+
+        <div class="societaria-layout" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 3rem; margin-top: -2rem;">
+          
+          <div style="text-align: center; max-width: 800px;">
+            <p style="font-size: 1.5rem; color: var(--text-dark); line-height: 1.6;">
+              A <strong>Lado Bom Seguros</strong> é uma <em>Joint Venture</em> estratégica, formada pela união de expertises complementares de duas grandes forças do mercado:
+            </p>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: center; gap: 4rem; width: 100%;">
+            <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; display: flex; align-items: center; justify-content: center; width: 300px; height: 150px;">
+              <img src="gruporv.png" alt="Grupo RV" style="width: 240px; transform: scale(1.2); object-fit: contain;">
+            </div>
+            
+            <div style="font-size: 3rem; color: var(--brand-purple); font-weight: bold;">+</div>
+            
+            <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; display: flex; align-items: center; justify-content: center; width: 300px; height: 150px;">
+              <img src="grupobrognoli.svg" alt="Grupo Brognoli" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+            </div>
+          </div>
+
+          <div style="background: rgba(80, 40, 150, 0.03); border: 1px solid rgba(80, 40, 150, 0.1); border-radius: 12px; padding: 2rem; width: 100%; max-width: 900px; margin-top: 1rem;">
+            <h3 style="color: var(--brand-purple-dark); font-size: 1.2rem; margin-bottom: 1rem; text-align: center;">ENTIDADES LEGAIS (CNPJs)</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+              <li style="display: flex; align-items: center; font-size: 1.1rem; color: var(--text-medium);">
+                <span style="color: var(--brand-green); margin-right: 10px;">•</span> 
+                <strong>IMOB SEGUROS – GRUPO BROGNOLI LTDA</strong>
+              </li>
+              <li style="display: flex; align-items: center; font-size: 1.1rem; color: var(--text-medium);">
+                <span style="color: var(--brand-green); margin-right: 10px;">•</span> 
+                <strong>LADO BOM CORRETORA DE SEGUROS SA</strong>
+              </li>
+              <li style="display: flex; align-items: center; font-size: 1.1rem; color: var(--text-medium);">
+                <span style="color: var(--brand-green); margin-right: 10px;">•</span> 
+                <strong>LADO BOM SEGUROS LTDA</strong>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 03: TEAM MEMBERS -->
+    <section class="slide" id="slide-3">
+      <div class="slide-content team-container">
+        <header class="slide-header" style="position: relative;">
+          <span class="slide-subtitle">Governança &amp; Gestão</span>
+          <h2 class="slide-title" style="margin-bottom: 0;">Pessoas Chaves da Parceria</h2>
+          <a href="https://organograma-ladobom-cr.pages.dev/" target="_blank" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); background-color: var(--brand-purple); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; font-family: 'Arial', sans-serif; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(80, 40, 150, 0.3); transition: transform 0.2s ease, box-shadow 0.2s ease; z-index: 10;" onmouseover="this.style.transform='translateY(-50%) scale(1.05)'; this.style.boxShadow='0 6px 20px rgba(80, 40, 150, 0.4)';" onmouseout="this.style.transform='translateY(-50%) scale(1)'; this.style.boxShadow='0 4px 15px rgba(80, 40, 150, 0.3)';">
+            <span>Equipe Completa</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </header>
+
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-avatar-wrapper">
+              <img src="src/assets/pessoas/jon.png" alt="Jonatan Matschulat" class="team-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="team-avatar-gradient" style="display:none;">JM</div>
+            </div>
+            <h3 class="team-name">Jonatan Matschulat</h3>
+            <span class="team-role">CEO</span>
+            <p class="team-desc">Responsável pela liderança estratégica da Lado Bom Seguros e pela governança da parceria com a CR.</p>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar-wrapper">
+              <img src="src/assets/pessoas/douglas.png" alt="Douglas Berto" class="team-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="team-avatar-gradient" style="display:none;">DB</div>
+            </div>
+            <h3 class="team-name">Douglas Berto</h3>
+            <span class="team-role">HEAD DE OPERAÇÕES</span>
+            <p class="team-desc">Responsável pela liderança das áreas operacionais, como de Contratação, Sinistro, Cobrança e Faturamento.</p>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar-wrapper">
+              <img src="src/assets/pessoas/renan.png" alt="Renan Vidal" class="team-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="team-avatar-gradient" style="display:none;">RV</div>
+            </div>
+            <h3 class="team-name">Renan Vidal</h3>
+            <span class="team-role">CONSULTOR TÉCNICO</span>
+            <p class="team-desc">Responsável pelos seguros dos ramos elementares e pela responsabilidade técnica da corretora.</p>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar-wrapper">
+              <img src="src/assets/pessoas/ryan.png" alt="Ryan Silva" class="team-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="team-avatar-gradient" style="display:none;">RS</div>
+            </div>
+            <h3 class="team-name">Ryan Silva</h3>
+            <span class="team-role">BUSINESS OPERATIONS</span>
+            <p class="team-desc">Responsável pela gestão estratégica da parceria com a CR e acompanhamento das principais frentes de negócio.</p>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar-wrapper">
+              <img src="src/assets/pessoas/sara.png" alt="Sara Brum" class="team-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="team-avatar-gradient" style="display:none;">SB</div>
+            </div>
+            <h3 class="team-name">Sara Brum</h3>
+            <span class="team-role">HEAD DE MARKETING</span>
+            <p class="team-desc">Responsável pela estratégia de marketing e posicionamento de marca da Lado Bom, fortalecendo a presença e a comunicação da parceria.</p>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar-wrapper">
+              <img src="src/assets/pessoas/Manuela.png" alt="Manuela Cardoso" class="team-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="team-avatar-gradient" style="display:none;">MC</div>
+            </div>
+            <h3 class="team-name">Manuela Cardoso</h3>
+            <span class="team-role">SUPERVISORA DE SINISTROS</span>
+            <p class="team-desc">Responsável pela supervisão da equipe de sinistros, garantindo o andamento dos processos, a qualidade do atendimento e o alinhamento operacional.</p>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar-wrapper">
+              <img src="src/assets/pessoas/cesar.png" alt="Cesar Eduardo" class="team-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="team-avatar-gradient" style="display:none;">CE</div>
+            </div>
+            <h3 class="team-name">Cesar Eduardo</h3>
+            <span class="team-role">SUPERVISOR DE CONTRATAÇÃO</span>
+            <p class="team-desc">Responsável pela supervisão da equipe de contratação, garantindo o cumprimento dos processos e dos SLAs estabelecidos.</p>
+          </div>
+
+          <div class="team-card">
+            <div class="team-avatar-wrapper">
+              <img src="src/assets/pessoas/ana.png" alt="Ana Minato" class="team-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="team-avatar-gradient" style="display:none;">AM</div>
+            </div>
+            <h3 class="team-name">Ana Minato</h3>
+            <span class="team-role">CONSULTORA DE SEGUROS - Condomínios</span>
+            <p class="team-desc">Responsável pela gestão, renovação e contratação das carteiras de seguros da vertical de condomínios.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 04: PROJECTS -->
+    <section class="slide" id="slide-4">
+      <div class="slide-content projects-container">
+        <header class="slide-header">
+          <span class="slide-subtitle">Avanços Estratégicos</span>
+          <h2 class="slide-title">Principais Projetos</h2>
+        </header>
+
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-icon-header">
+              <div class="project-icon-bg-glow"></div>
+              <div class="project-icon-wrapper" title="Plataforma">
+                <svg viewBox="0 0 24 24">
+                  <path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6zm3 4h2v4H7v-4zm4-3h2v7h-2V7zm4 5h2v2h-2v-2z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">Plataforma Lado Bom</h3>
+              <ul class="project-list">
+                <li>Evolução do fluxo operacional</li>
+                <li>Estruturação de fluxos integrados</li>
+                <li>Centralização da jornada operacional</li>
+                <li>Acompanhamento de indicadores via plataforma</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-icon-header">
+              <div class="project-icon-bg-glow"></div>
+              <div class="project-icon-wrapper" title="Times">
+                <svg viewBox="0 0 24 24">
+                  <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">Aproximação dos Times</h3>
+              <ul class="project-list">
+                <li>Aproximação com times RS e SC</li>
+                <li>Visitas presenciais de integração</li>
+                <li>Revisão de fluxos e melhorias mútuas</li>
+                <li>Definição de reuniões de alinhamento regular</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-icon-header">
+              <div class="project-icon-bg-glow"></div>
+              <div class="project-icon-wrapper" title="Comercial">
+                <svg viewBox="0 0 24 24">
+                  <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6h-6zM20 18H4v-3H2v5h18v-2z"/>
+                </svg>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3 class="project-title">Marca, Comercial &amp; Crescimento</h3>
+              <ul class="project-list">
+                <li>Análises mensais de performance</li>
+                <li>Elaboração de materiais comerciais refinados</li>
+                <li>Investimentos estratégicos em marketing e relacionamento</li>
+                <li>Aproximação active da CR com seguradoras parceiras</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-footer">
+          <div class="highlight-icon">💡</div>
+          <p class="highlight-text">
+            Início de 2026 marcado por avanços estratégicos e maior integração entre Lado Bom e Crédito Real.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 05: CONTEXTO DA PARCERIA -->
+    <section class="slide" id="slide-5">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Alinhamento Estratégico</span>
+          <h2 class="slide-title">Contexto da Parceria</h2>
+        </header>
+
+        <div class="narrative-centered-layout">
+          <blockquote class="narrative-big-quote">
+            O primeiro trimestre de 2026 marcou a consolidação da Lado Bom Seguros em um novo momento institucional, com avanço da integração com a Crédito Real e amadurecimento das frentes de negócio.
+          </blockquote>
+
+          <div class="narrative-desc-card">
+            <p>
+              O Q1 de 2026 foi um período de consolidação da parceria entre Lado Bom Seguros e Crédito Real. Além dos resultados financeiros, o trimestre foi marcado por avanços estruturantes, maior proximidade entre os times e fortalecimento da atuação integrada nas verticais de Locação e Condomínio.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 06: RESULTADO CONSOLIDADO (LAYOUT A - SPLIT ESQUERDA) -->
+    <section class="slide chart-theme" id="slide-6">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Resultado Consolidado Q1 2026</span>
+          <h2 class="slide-title">Participação de Rebate por Vertical</h2>
+        </header>
+
+        <div class="split-layout">
+          <div class="commentary-side">
+            <div class="message-card">
+              <p class="message-text">O quarter encerrou com R$ 542,9 mil em rebate, com Locação concentrando a maior participação do resultado.</p>
+            </div>
+            <div class="narrative-card">
+              <p class="narrative-text">
+                O resultado consolidado do Q1 reforça a relevância da vertical de Locação como principal motor da parceria, representando aproximadamente 73% do rebate do trimestre. Condomínio responde por cerca de 27% do resultado e permanece como uma frente estratégica com oportunidade de retomada e aceleração nos próximos ciclos.
+              </p>
+            </div>
+          </div>
+          <div class="chart-side">
+            <div class="plotly-iframe-container">
+              <div id="plotly-chart-01" class="plotly-chart-container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 07: EVOLUÇÃO POR VERTICAL (LAYOUT B - SPLIT REVERSO) -->
+    <section class="slide chart-theme" id="slide-7">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Evolução de Performance</span>
+          <h2 class="slide-title">Evolução Mensal por Vertical</h2>
+        </header>
+
+        <div class="split-layout reversed">
+          <div class="commentary-side">
+            <div class="message-card">
+              <p class="message-text">Locação apresentou evolução positiva e estabilidade acima de R$ 139 mil em fevereiro e março, enquanto Condomínio teve retração após janeiro.</p>
+            </div>
+            <div class="narrative-card">
+              <p class="narrative-text">
+                A evolução mensal mostra uma trajetória positiva em Locação, com crescimento relevante de janeiro para fevereiro e manutenção do patamar em março. Em Condomínio, janeiro foi o melhor mês do trimestre, seguido por queda em fevereiro e março, indicando necessidade de ações específicas para retomada de performance.
+              </p>
+            </div>
+          </div>
+          <div class="chart-side">
+            <div class="plotly-iframe-container">
+              <div id="plotly-chart-02" class="plotly-chart-container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 08: META X REALIZADO (LAYOUT D - METRICS DASHBOARD GRID) -->
+    <section class="slide chart-theme" id="slide-8">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Análise de Objetivos Acumulados</span>
+          <h2 class="slide-title">Meta x Realizado Q1 2026</h2>
+        </header>
+
+        <div class="grid-metrics-layout">
+          <!-- Top Row KPI boxes -->
+          <div class="metrics-row">
+            <div class="metric-box orange">
+              <div>
+                <div class="metric-box-title">Vertical Locação</div>
+                <div class="metric-box-desc">Desempenho Acumulado</div>
+              </div>
+              <div class="metric-box-values">
+                <div class="metric-box-real">R$ 400,1k</div>
+                <div class="metric-box-meta">Meta: R$ 390,0k (106.5%)</div>
+              </div>
+            </div>
+            
+            <div class="metric-box">
+              <div>
+                <div class="metric-box-title">Vertical Condomínio</div>
+                <div class="metric-box-desc">Desempenho Acumulado</div>
+              </div>
+              <div class="metric-box-values">
+                <div class="metric-box-real" style="color: #6B4FB3;">R$ 142,7k</div>
+                <div class="metric-box-meta">Meta: R$ 165,0k (86.5%)</div>
+              </div>
+            </div>
+
+            <div class="metric-box" style="border-left-color: var(--brand-purple-dark);">
+              <div>
+                <div class="metric-box-title">Total Parceria</div>
+                <div class="metric-box-desc">Resultado Consolidado</div>
+              </div>
+              <div class="metric-box-values">
+                <div class="metric-box-real" style="color: var(--brand-purple-dark);">R$ 542,9k</div>
+                <div class="metric-box-meta">Meta: R$ 555,0k (97.8%)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Row Chart -->
+          <div class="chart-side">
+            <div class="plotly-iframe-container">
+              <div id="plotly-chart-03" class="plotly-chart-container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 09: ATINGIMENTO DE META (LAYOUT A - SPLIT ESQUERDA) -->
+    <section class="slide chart-theme" id="slide-9">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Percentual de Atingimento</span>
+          <h2 class="slide-title">Atingimento da Meta no Quarter</h2>
+        </header>
+
+        <div class="split-layout">
+          <div class="commentary-side">
+            <div class="message-card">
+              <p class="message-text">Locação atingiu 102,6% da meta, enquanto Condomínio atingiu 86,5%.</p>
+            </div>
+            <div class="narrative-card">
+              <p class="narrative-text">
+                A leitura de atingimento evidencia dois cenários distintos: Locação encerra o quarter acima do objetivo, sustentando o resultado consolidado da parceria; Condomínio, apesar de manter volume relevante, ficou abaixo da meta e deve ser priorizado no plano de aceleração do próximo trimestre.
+              </p>
+            </div>
+          </div>
+          <div class="chart-side">
+            <div class="plotly-iframe-container">
+              <div id="plotly-chart-04" class="plotly-chart-container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 10: YOY COMPARATIVO VERTICAL (LAYOUT B - SPLIT REVERSO) -->
+    <section class="slide chart-theme" id="slide-10">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Análise Comparativa Temporal</span>
+          <h2 class="slide-title">Comparativo Ano a Ano por Vertical (YoY)</h2>
+        </header>
+
+        <div class="split-layout reversed">
+          <div class="commentary-side">
+            <div class="message-card">
+              <p class="message-text">A performance de 2026 deve ser lida contra a base comparável de 2025, separando o comportamento de Locação e Condomínio.</p>
+            </div>
+            <div class="narrative-card">
+              <p class="narrative-text">
+                Na leitura Ano a Ano, Locação apresenta crescimento relevante em janeiro e fevereiro, com destaque para fevereiro, que cresceu R$ 45,7 mil frente ao mesmo mês de 2025. Em Condomínio, janeiro apresentou crescimento expressivo, mas fevereiro e março ficaram abaixo do ano anterior, indicando perda de ritmo após o primeiro mês do trimestre.
+              </p>
+            </div>
+          </div>
+          <div class="chart-side">
+            <div class="plotly-iframe-container">
+              <div id="plotly-chart-10" class="plotly-chart-container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 11: YOY VARIAÇÃO MENSAL (LAYOUT A - SPLIT ESQUERDA) -->
+    <section class="slide chart-theme" id="slide-11">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Variação Real contra Ano Anterior</span>
+          <h2 class="slide-title">Variação YoY por Mês</h2>
+        </header>
+
+        <div class="split-layout">
+          <div class="commentary-side">
+            <div class="message-card">
+              <p class="message-text">A variação mensal mostra onde o trimestre ganhou e onde perdeu performance em relação ao ano anterior.</p>
+            </div>
+            <div class="narrative-card">
+              <p class="narrative-text">
+                A variação YoY reforça dois movimentos distintos: Locação teve ganho relevante na base comparável, especialmente em fevereiro; Condomínio começou o trimestre com crescimento em janeiro, mas registrou retrações em fevereiro e março. Essa leitura ajuda a direcionar o foco do Q2 para retomada de Condomínio e sustentação do crescimento em Locação.
+              </p>
+            </div>
+          </div>
+          <div class="chart-side">
+            <div class="plotly-iframe-container">
+              <div id="plotly-chart-11" class="plotly-chart-container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 12: YOY VARIAÇÃO PRODUTO (LAYOUT C - FULL SCREEN WIDTH DETAILED CHART) -->
+
+    <!-- SLIDE 13: YOY LOCAÇÃO POR PRODUTO (LAYOUT A - SPLIT ESQUERDA) -->
+
+    <!-- SLIDE 14: YOY CONDOMÍNIO POR PRODUTO (LAYOUT B - SPLIT REVERSO) -->
+
+    <!-- SLIDE 15: PONTE YOY LOCAÇÃO (LAYOUT C - FULL SCREEN WATERFALL BRIDGE) -->
+
+    <!-- SLIDE 16: PONTE YOY CONDOMÍNIO (LAYOUT C - FULL SCREEN WATERFALL BRIDGE) -->
+
+
+
+    <!-- SLIDE 17: COMPOSIÇÃO POR PRODUTO (LAYOUT C - FULL SCREEN DETAILED STACKED BARS) -->
+    <section class="slide chart-theme" id="slide-17">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Mix Detalhado por Canal</span>
+          <h2 class="slide-title">Composição de Rebate por Produto | Q1 2026</h2>
+        </header>
+
+        <div class="full-screen-layout">
+          <!-- Top Row Commentary -->
+          <div class="message-card">
+            <p class="message-text"><strong>Mensagem do slide:</strong> O resultado está concentrado nos produtos imobiliários em Locação e em Conteúdo Residencial/Condomínio na vertical Condomínio. <span style="font-weight: normal; color: var(--text-medium); margin-left: 10px; font-size: 14px;">Em Locação, IMOE e IMOR concentram a maior parte do rebate. Em Condomínio, CTDR e COND são os principais componentes, com Vida Grupo mantendo participação relevante no quarter.</span></p>
+          </div>
+          
+          <!-- Large Full-Width Chart -->
+          <div class="chart-side">
+            <div class="plotly-iframe-container">
+              <div id="plotly-chart-05" class="plotly-chart-container"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 18: RANKING DE PRODUTOS NO Q1 (LAYOUT A - SPLIT ESQUERDA) -->
+
+    <!-- SLIDE 19: MAPA DE INTENSIDADE (LAYOUT C - FULL SCREEN HEATMAP) -->
+
+    <!-- SLIDE 20: DETALHAMENTO LOCAÇÃO (LAYOUT A - SPLIT ESQUERDA) -->
+
+    <!-- SLIDE 21: DETALHAMENTO CONDOMÍNIO (LAYOUT B - SPLIT REVERSO) -->
+
+
+
+    <!-- SLIDE 22: PLANO DE AÇÃO (PDF) -->
+    <section class="slide" id="slide-22">
+      <div class="slide-content projects-container">
+        <header class="slide-header">
+          <span class="slide-subtitle">Plano de Ação Operacional & Governança</span>
+          <h2 class="slide-title">Implantação Plataforma Lado Bom</h2>
+        </header>
+
+        <div class="highlight-footer" style="background-color: rgba(80, 40, 150, 0.05); border-left-color: var(--brand-purple);">
+          <div class="highlight-icon">🚀</div>
+          <p class="highlight-text" style="color: var(--brand-purple-dark);">
+            <strong>Diretriz: Concentrar a evolução operacional na plataforma, com entregas graduais e sustentáveis, evitando controles paralelos e reduzindo a dependência manual.</strong>
+          </p>
+        </div>
+
+        <div class="priorities-grid">
+          <!-- Fase 1 -->
+          <div class="priority-card">
+            <div class="priority-icon">F1</div>
+            <h3 class="priority-title">0 a 30 dias</h3>
+            <p class="priority-desc"><strong>Ativar Estrutura Mínima:</strong> Definição de usuários-chave, parametrização inicial, consolidação do layout de dados e carga preliminar da carteira (apólices, contratos, status).</p>
+          </div>
+          <!-- Fase 2 -->
+          <div class="priority-card">
+            <div class="priority-icon">F2</div>
+            <h3 class="priority-title">31 a 60 dias</h3>
+            <p class="priority-desc"><strong>Mitigar Riscos Operacionais:</strong> Uso controlado focado na centralização de aberturas de sinistros, encerramentos, renovações críticas e faturas sensíveis.</p>
+          </div>
+          <!-- Fase 3 -->
+          <div class="priority-card">
+            <div class="priority-icon">F3</div>
+            <h3 class="priority-title">61 a 90 dias</h3>
+            <p class="priority-desc"><strong>Ganho de Previsibilidade:</strong> Ampliação para rotina mensal de conferência estruturada, criação de dashboards simples e acompanhamento de relatórios de pendências.</p>
+          </div>
+          <!-- Fase 4 -->
+          <div class="priority-card">
+            <div class="priority-icon">F4</div>
+            <h3 class="priority-title">91 a 120 dias</h3>
+            <p class="priority-desc"><strong>Consolidar Governança:</strong> Formalização de regras operacionais essenciais (responsabilidades, matriz, prazos, critérios de renovação) com base no uso real e auditoria trimestral por exceção.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 23: PLANO DE AÇÃO RESUMIDO (TABELA) -->
+    <section class="slide" id="slide-23">
+      <div class="slide-content" style="padding-top: 2rem;">
+        <header class="slide-header">
+          <span class="slide-subtitle">Plano de Ação Operacional</span>
+          <h2 class="slide-title">Plano de Ação Resumido</h2>
+        </header>
+
+        <div style="margin-top: 1rem; overflow-y: auto; max-height: 70vh; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem; font-family: 'Arial', sans-serif;">
+            <thead>
+              <tr style="background-color: var(--brand-purple-dark, #1c4b82); color: white; text-align: left;">
+                <th style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Frente</th>
+                <th style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Ação objetiva</th>
+                <th style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Responsável principal</th>
+                <th style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Prazo realista</th>
+                <th style="padding: 12px; border: 1px solid #ddd; font-weight: 600;">Evidência de conclusão</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color: white;">
+                <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: var(--text-dark);">Plataforma Lado Bom</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Implantar uso operacional da plataforma como ambiente central de registro da parceria, iniciando por sinistros e contratações e posteriormente avançando para renovações, faturas.</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Lado Bom / Imob Seguros</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Implantação gradual: 30 a 120 dias</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Ambiente ativo, usuários-chave cadastrados, primeiros registros operacionais e relatório de status.</td>
+              </tr>
+              <tr style="background-color: #f9f9f9;">
+                <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: var(--text-dark);">Base de carteira</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Consolidar base de apólices, contratos, status e vigências para carga/consulta na plataforma.</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Lado Bom, com dados enviados pela Crédito Real</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">15 a 30 dias</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Base consolidada, layout validado e histórico mínimo carregado.</td>
+              </tr>
+              <tr style="background-color: white;">
+                <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: var(--text-dark);">Dados da Crédito Real</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Definir relatório mensal padrão com contratos ativos, desocupações, alterações cadastrais, movimentações e carteira elegível para renovação.</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Crédito Real + Lado Bom</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Até 30 dias para layout; rotina mensal a partir do mês seguinte</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Modelo de relatório aprovado e primeiro arquivo recebido/validado.</td>
+              </tr>
+              <tr style="background-color: #f9f9f9;">
+                <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: var(--text-dark);">Sinistros</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Centralizar abertura, movimentações, encerramentos e comunicações vinculadas ao sinistro.</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Lado Bom / Imob Seguros, com retorno da Crédito Real quando necessário</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">30 a 60 dias</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Sinistros novos registrados com status, responsável e data da última atualização.</td>
+              </tr>
+              <tr style="background-color: white;">
+                <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: var(--text-dark);">Governança da operação</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Estabelecer pontos focais, reunião quinzenal inicial e pauta objetiva de pendências críticas.</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Ambas as partes</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Imediato</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Agenda criada, participantes definidos e ata/resumo de encaminhamentos.</td>
+              </tr>
+              <tr style="background-color: #f9f9f9;">
+                <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: var(--text-dark);">Formalização dos acordos</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Documentar regras operacionais essenciais: responsabilidades, prazos de envio de dados, critérios de renovação, faturas e tratamento de divergências.</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Ambas as partes</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">60 a 120 dias</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Matriz de responsabilidades e minuta operacional validada pelas áreas envolvidas.</td>
+              </tr>
+              <tr style="background-color: white;">
+                <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: var(--text-dark);">Auditoria</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Executar conferência amostral periódica, e auditoria completa trimestralmente.</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Lado Bom / Imob Seguros</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Trimestral, a partir da estabilização da base</td>
+                <td style="padding: 12px; border: 1px solid #ddd; color: var(--text-dark);">Relatório simples de divergências, tratativas e pendências abertas.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 24: OBRIGADO -->
+    <section class="slide cover-theme" id="slide-24">
+      <div class="cover-content" style="text-align: center; display: flex; flex-direction: column; justify-content: center; height: 100%;">
+        <div class="cover-logo">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="var(--brand-green)"/>
+            <path d="M2 17L12 22L22 17" stroke="var(--brand-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="var(--brand-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h1 class="cover-title" style="font-size: 4.5rem; margin-bottom: 2rem;">Muito Obrigado!</h1>
+        <p class="cover-subtitle" style="margin-bottom: 4rem;">Agradecemos pela parceria, confiança e visão de futuro.</p>
+        
+        <div class="presenters" style="display: flex; justify-content: center; gap: 5rem; margin-top: 2rem;">
+          <div class="presenter" style="text-align: center;">
+            <img src="src/assets/pessoas/jon.png" alt="Jonatan Matschulat" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--brand-green); margin-bottom: 1.5rem; background-color: white;">
+            <h3 style="color: white; margin: 0; font-size: 1.5rem;">Jonatan Matschulat</h3>
+            <p style="color: rgba(255,255,255,0.7); margin: 0; font-size: 1rem;">CEO</p>
+          </div>
+          <div class="presenter" style="text-align: center;">
+            <img src="src/assets/pessoas/douglas.png" alt="Douglas Berto" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--brand-green); margin-bottom: 1.5rem; background-color: white;">
+            <h3 style="color: white; margin: 0; font-size: 1.5rem;">Douglas Berto</h3>
+            <p style="color: rgba(255,255,255,0.7); margin: 0; font-size: 1rem;">Head de Operações</p>
+          </div>
+          <div class="presenter" style="text-align: center;">
+            <img src="src/assets/pessoas/ryan.png" alt="Ryan Silva" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--brand-green); margin-bottom: 1.5rem; background-color: white;">
+            <h3 style="color: white; margin: 0; font-size: 1.5rem;">Ryan Silva</h3>
+            <p style="color: rgba(255,255,255,0.7); margin: 0; font-size: 1rem;">Business Operations</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- PRESENTATION SCRIPTS -->
+  <script src="src/charts.js?v=2.2"></script>
+  <script src="src/app.js?v=2.2"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Treinamento Seguro Imobiliário | Lado Bom &amp; Crédito Real &amp; Yelum</title>
+  <meta name="description" content="Treinamento comercial e institucional do Seguro Imobiliário — Parceria Lado Bom Seguros, Crédito Real e Yelum Seguradora">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Roboto+Condensed:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* =============================================
+       DESIGN SYSTEM — BRAND TOKENS
+       ============================================= */
+    :root {
+      --brand-purple: #6B4FB3;
+      --brand-purple-dark: #3D2B6B;
+      --brand-purple-deeper: #2A1D4E;
+      --brand-green: #A8E063;
+      --brand-green-dark: #7CB342;
+      --brand-gold: #FFD700;
+      --brand-orange: #FF9800;
+      --brand-red: #EF5350;
+      --brand-blue: #42A5F5;
+      --brand-teal: #26A69A;
+      --text-dark: #1a1a2e;
+      --text-medium: #555;
+      --text-light: #888;
+      --bg-light: #f8f7fc;
+      --bg-card: #ffffff;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.12);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --transition-fast: 0.2s ease;
+      --transition-med: 0.3s ease;
+      --yelum-dark: #2d3436;
+      --yelum-gold: #F5A623;
+      --cr-red: #C62828;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--brand-purple-deeper);
+      color: var(--text-dark);
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    /* =============================================
+       PRESENTATION CONTAINER & SLIDE SYSTEM
+       ============================================= */
+    .presentation-container { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+
+    .slide {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--bg-light);
+      opacity: 0; visibility: hidden; transform: translateX(60px);
+      transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s 0.5s;
+      overflow-y: auto;
+    }
+    .slide.active {
+      opacity: 1; visibility: visible; transform: translateX(0);
+      transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s;
+      z-index: 5;
+    }
+    .slide.exit-left { opacity: 0; transform: translateX(-60px); }
+
+    .slide-content {
+      width: 100%; max-width: 1200px; height: 100%;
+      padding: 3rem 4rem;
+      display: flex; flex-direction: column; gap: 1.2rem;
+    }
+
+    /* =============================================
+       COVER THEME
+       ============================================= */
+    .cover-theme {
+      background: linear-gradient(135deg, var(--brand-purple-deeper) 0%, var(--brand-purple-dark) 40%, var(--brand-purple) 100%);
+    }
+    .cover-theme .slide-content { justify-content: center; align-items: flex-start; padding: 4rem 6rem; }
+    .cover-theme .slide-subtitle {
+      color: var(--brand-green); font-size: 0.85rem; font-weight: 600;
+      letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.5rem;
+    }
+    .cover-theme .slide-title {
+      color: #fff; font-family: 'Roboto Condensed', sans-serif;
+      font-size: 3.8rem; font-weight: 800; line-height: 1.1; margin-bottom: 0.5rem;
+    }
+    .cover-theme .slide-description {
+      color: rgba(255,255,255,0.6); font-size: 1.1rem; font-weight: 300; letter-spacing: 2px;
+    }
+
+    .cover-logos {
+      display: flex; align-items: center; gap: 2rem; margin-top: 3rem;
+    }
+    .cover-logos img { height: 38px; object-fit: contain; }
+    .cover-line { width: 1px; height: 40px; background: rgba(255,255,255,0.25); }
+
+    /* =============================================
+       SLIDE HEADER
+       ============================================= */
+    .slide-header { margin-bottom: 0.3rem; }
+    .slide-subtitle {
+      color: var(--brand-purple); font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 0.2rem;
+    }
+    .slide-title {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 2rem; font-weight: 800; color: var(--text-dark); line-height: 1.2;
+    }
+
+    /* =============================================
+       CARDS & CONTAINERS
+       ============================================= */
+    .message-card {
+      background: white; border-radius: var(--radius-md); padding: 1rem 1.5rem;
+      box-shadow: var(--shadow-sm); border-left: 4px solid var(--brand-purple);
+    }
+    .message-text { font-size: 0.92rem; color: var(--text-dark); line-height: 1.6; }
+
+    .highlight-footer {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 0.8rem 1.2rem; background: rgba(168, 224, 99, 0.08);
+      border-left: 4px solid var(--brand-green);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-top: auto;
+    }
+    .highlight-icon { width: 28px; height: 28px; flex-shrink: 0; }
+    .highlight-icon svg { width: 100%; height: 100%; fill: var(--brand-green-dark); }
+    .highlight-text { font-size: 0.88rem; color: var(--text-dark); line-height: 1.5; }
+
+    .law-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--brand-purple-dark), var(--brand-purple));
+      color: white; padding: 10px 20px; border-radius: 8px;
+      font-size: 0.85rem; font-weight: 600; letter-spacing: 0.5px;
+    }
+
+    /* =============================================
+       STATS
+       ============================================= */
+    .stats-row {
+      display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px;
+    }
+    .stat-circle {
+      background-color: var(--brand-gold); border-radius: 50%; aspect-ratio: 1;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: transform var(--transition-med);
+    }
+    .stat-circle:hover { transform: scale(1.05); }
+    .stat-value {
+      color: var(--brand-purple-dark); font-family: 'Roboto Condensed', sans-serif;
+      font-size: 22px; font-weight: 800; line-height: 1.1;
+    }
+    .stat-label {
+      color: var(--brand-purple-dark); font-size: 10px; font-weight: 500;
+      margin-top: 3px; line-height: 1.2;
+    }
+
+    /* Awards */
+    .awards-grid { display: flex; gap: 1rem; }
+    .award-badge-card {
+      display: flex; align-items: center; gap: 10px; background: white;
+      border-radius: var(--radius-sm); padding: 10px 14px;
+      box-shadow: var(--shadow-sm); border: 1px solid #eee; flex: 1;
+    }
+    .award-icon-wrapper {
+      background: var(--brand-gold); border-radius: 50%;
+      width: 36px; height: 36px; min-width: 36px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .award-icon-wrapper svg { width: 20px; height: 20px; fill: var(--brand-purple-dark); }
+    .award-text { font-size: 0.82rem; font-weight: 600; color: var(--text-dark); }
+
+    /* =============================================
+       YELUM STATS
+       ============================================= */
+    .yelum-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .yelum-stat {
+      background: white; border-radius: var(--radius-md); padding: 1.2rem 1rem;
+      text-align: center; box-shadow: var(--shadow-sm); border: 1px solid #eee;
+      transition: all var(--transition-med);
+    }
+    .yelum-stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--yelum-dark); }
+    .yelum-stat-icon { margin-bottom: 0.4rem; }
+    .yelum-stat-icon svg { width: 32px; height: 32px; fill: var(--yelum-dark); }
+    .yelum-stat-value {
+      font-family: 'Roboto Condensed', sans-serif; font-size: 1.3rem;
+      font-weight: 800; color: var(--yelum-dark);
+    }
+    .yelum-stat-label { font-size: 0.78rem; color: var(--text-medium); margin-top: 0.2rem; }
+
+    /* =============================================
+       PRODUCT / FEATURE LISTS
+       ============================================= */
+    .product-overview { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; flex: 1; align-items: center; }
+    .product-highlight-box {
+      background: linear-gradient(135deg, var(--brand-purple-dark), var(--brand-purple));
+      border-radius: var(--radius-lg); padding: 2rem; color: white;
+      display: flex; flex-direction: column; gap: 0.8rem;
+    }
+    .product-highlight-box h3 { font-family: 'Roboto Condensed', sans-serif; font-size: 1.4rem; font-weight: 800; }
+    .product-highlight-box p { font-size: 0.92rem; line-height: 1.6; opacity: 0.9; }
+
+    .product-features { display: flex; flex-direction: column; gap: 0.6rem; }
+    .product-feature {
+      display: flex; align-items: center; gap: 12px; background: white;
+      border-radius: var(--radius-sm); padding: 12px 16px;
+      box-shadow: var(--shadow-sm); border: 1px solid #eee;
+      transition: all var(--transition-fast);
+    }
+    .product-feature:hover { border-color: var(--brand-green); transform: translateX(4px); }
+    .product-feature-icon { width: 24px; height: 24px; flex-shrink: 0; }
+    .product-feature-icon svg { width: 100%; height: 100%; fill: var(--brand-purple); }
+    .product-feature-text { font-size: 0.88rem; font-weight: 500; color: var(--text-dark); }
+
+    /* =============================================
+       ECOSYSTEM
+       ============================================= */
+    .ecosystem-layout { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; gap: 1.5rem; }
+    .ecosystem-nodes { display: flex; align-items: center; justify-content: center; gap: 1rem; width: 100%; }
+    .eco-node {
+      background: white; border-radius: var(--radius-lg); padding: 1.8rem 1.2rem;
+      box-shadow: var(--shadow-md); text-align: center; flex: 1; max-width: 280px;
+      border: 2px solid transparent; transition: all var(--transition-med); position: relative;
+    }
+    .eco-node:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .eco-node.cr { border-color: var(--cr-red); }
+    .eco-node.lb { border-color: var(--brand-purple); }
+    .eco-node.yl { border-color: var(--yelum-dark); }
+    .eco-node-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 0.8rem;
+    }
+    .eco-node.cr .eco-node-icon { background: var(--cr-red); }
+    .eco-node.lb .eco-node-icon { background: var(--brand-purple); }
+    .eco-node.yl .eco-node-icon { background: var(--yelum-dark); }
+    .eco-node-icon svg { width: 28px; height: 28px; fill: white; }
+    .eco-node-role {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 0.2rem;
+    }
+    .eco-node.cr .eco-node-role { color: var(--cr-red); }
+    .eco-node.lb .eco-node-role { color: var(--brand-purple); }
+    .eco-node.yl .eco-node-role { color: var(--yelum-dark); }
+    .eco-node-name { font-family: 'Roboto Condensed', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.4rem; }
+    .eco-node-desc { font-size: 0.82rem; color: var(--text-medium); line-height: 1.5; }
+    .eco-connector { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+    .eco-connector-line { width: 40px; height: 3px; background: linear-gradient(90deg, var(--brand-purple), var(--brand-green)); border-radius: 2px; }
+    .eco-connector-icon svg { width: 18px; height: 18px; fill: var(--brand-purple); }
+    .ecosystem-message {
+      background: linear-gradient(135deg, rgba(107, 79, 179, 0.05), rgba(168, 224, 99, 0.05));
+      border: 1px solid rgba(107, 79, 179, 0.15);
+      border-radius: var(--radius-md); padding: 1rem 2rem; text-align: center; max-width: 800px;
+    }
+    .ecosystem-message p { font-size: 0.92rem; color: var(--text-dark); line-height: 1.6; }
+
+    /* =============================================
+       BENEFITS GRID
+       ============================================= */
+    .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; flex: 1; }
+    .benefit-card {
+      background: white; border-radius: var(--radius-md); padding: 1.3rem;
+      box-shadow: var(--shadow-sm); border: 1px solid #eee;
+      transition: transform var(--transition-med), box-shadow var(--transition-med);
+      display: flex; flex-direction: column; gap: 0.6rem;
+    }
+    .benefit-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .benefit-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .benefit-icon svg { width: 24px; height: 24px; }
+    .benefit-icon.purple { background: rgba(107, 79, 179, 0.1); }
+    .benefit-icon.purple svg { fill: var(--brand-purple); }
+    .benefit-icon.green { background: rgba(168, 224, 99, 0.15); }
+    .benefit-icon.green svg { fill: var(--brand-green-dark); }
+    .benefit-icon.gold { background: rgba(255, 215, 0, 0.15); }
+    .benefit-icon.gold svg { fill: #c79100; }
+    .benefit-icon.blue { background: rgba(66, 165, 245, 0.12); }
+    .benefit-icon.blue svg { fill: var(--brand-blue); }
+    .benefit-icon.teal { background: rgba(38, 166, 154, 0.12); }
+    .benefit-icon.teal svg { fill: var(--brand-teal); }
+    .benefit-icon.orange { background: rgba(255, 152, 0, 0.12); }
+    .benefit-icon.orange svg { fill: var(--brand-orange); }
+    .benefit-title { font-weight: 700; font-size: 0.95rem; color: var(--text-dark); }
+    .benefit-desc { font-size: 0.82rem; line-height: 1.5; color: var(--text-medium); }
+
+    /* =============================================
+       COVERAGE TABLES
+       ============================================= */
+    .coverage-layout { display: flex; flex-direction: column; flex: 1; gap: 0.8rem; }
+    .coverage-table-wrapper { flex: 1; overflow-y: auto; border-radius: var(--radius-md); box-shadow: var(--shadow-md); }
+    .coverage-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .coverage-table thead tr { background: linear-gradient(135deg, var(--brand-purple-dark), var(--brand-purple)); color: white; }
+    .coverage-table th { padding: 12px 14px; text-align: left; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.3px; }
+    .coverage-table td { padding: 10px 14px; border-bottom: 1px solid #eee; color: var(--text-dark); }
+    .coverage-table tbody tr { transition: background var(--transition-fast); }
+    .coverage-table tbody tr:nth-child(even) { background: #fafafa; }
+    .coverage-table tbody tr:hover { background: rgba(107, 79, 179, 0.04); }
+    .coverage-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 2px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 600;
+    }
+    .coverage-badge.basic { background: rgba(168, 224, 99, 0.15); color: var(--brand-green-dark); }
+    .coverage-badge.additional { background: rgba(107, 79, 179, 0.1); color: var(--brand-purple); }
+    .coverage-icon svg { width: 20px; height: 20px; fill: var(--brand-purple); }
+    .lmi-value { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; color: var(--brand-purple-dark); white-space: nowrap; }
+
+    /* =============================================
+       VALUES PLACEHOLDER
+       ============================================= */
+    .values-placeholder { flex: 1; display: flex; align-items: center; justify-content: center; }
+    .values-alert {
+      background: linear-gradient(135deg, rgba(255, 152, 0, 0.06), rgba(255, 215, 0, 0.06));
+      border: 2px dashed var(--brand-orange); border-radius: var(--radius-lg);
+      padding: 3rem 4rem; text-align: center; max-width: 700px;
+    }
+    .values-alert-icon svg { width: 48px; height: 48px; fill: var(--brand-orange); margin-bottom: 1rem; }
+    .values-alert h3 { font-family: 'Roboto Condensed', sans-serif; font-size: 1.4rem; color: var(--brand-orange); margin-bottom: 0.5rem; }
+    .values-alert p { font-size: 0.95rem; color: var(--text-medium); line-height: 1.6; }
+    .atencao-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255, 152, 0, 0.1); color: var(--brand-orange);
+      padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
+    }
+
+    /* =============================================
+       SINISTRO PROCESS TIMELINE
+       ============================================= */
+    .process-timeline { display: flex; align-items: flex-start; gap: 0; flex: 0 0 auto; padding: 0.5rem 0; }
+    .process-step { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; }
+    .process-step::after {
+      content: ''; position: absolute; top: 28px; right: -50%; width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--brand-purple), var(--brand-green)); opacity: 0.3; z-index: 0;
+    }
+    .process-step:last-child::after { display: none; }
+    .process-step-number {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--brand-purple), var(--brand-purple-dark));
+      color: white; font-family: 'Roboto Condensed', sans-serif; font-size: 1.3rem;
+      font-weight: 800; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 0.8rem; position: relative; z-index: 1;
+      box-shadow: 0 4px 12px rgba(107, 79, 179, 0.3);
+    }
+    .process-step-title { font-weight: 700; font-size: 0.9rem; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .process-step-desc { font-size: 0.75rem; color: var(--text-medium); line-height: 1.4; max-width: 170px; }
+
+    /* =============================================
+       DOCS & PRAZOS
+       ============================================= */
+    .docs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+    .doc-item {
+      display: flex; align-items: center; gap: 10px; background: white;
+      border-radius: var(--radius-sm); padding: 10px 14px;
+      box-shadow: var(--shadow-sm); border: 1px solid #eee;
+      transition: all var(--transition-fast);
+    }
+    .doc-item:hover { border-color: var(--brand-purple); transform: translateX(3px); }
+    .doc-icon svg { width: 20px; height: 20px; fill: var(--brand-purple); }
+    .doc-text { font-size: 0.82rem; color: var(--text-dark); font-weight: 500; }
+
+    .prazos-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .prazo-card {
+      background: white; border-radius: var(--radius-md); padding: 1.2rem;
+      box-shadow: var(--shadow-sm); border: 1px solid #eee; text-align: center;
+      transition: all var(--transition-med);
+    }
+    .prazo-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .prazo-value { font-family: 'Roboto Condensed', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--brand-purple); }
+    .prazo-label { font-size: 0.82rem; font-weight: 600; color: var(--text-dark); margin-top: 0.3rem; }
+    .prazo-desc { font-size: 0.75rem; color: var(--text-medium); margin-top: 0.2rem; line-height: 1.3; }
+
+    /* =============================================
+       ASSISTÊNCIA GRID
+       ============================================= */
+    .assistencia-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; flex: 1; }
+    .assistencia-card {
+      background: white; border-radius: var(--radius-md); padding: 1rem;
+      box-shadow: var(--shadow-sm); border: 1px solid #eee; text-align: center;
+      transition: all var(--transition-med); display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+    }
+    .assistencia-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--brand-purple); }
+    .assistencia-icon {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, rgba(107, 79, 179, 0.1), rgba(168, 224, 99, 0.1));
+      display: flex; align-items: center; justify-content: center;
+    }
+    .assistencia-icon svg { width: 22px; height: 22px; fill: var(--brand-purple); }
+    .assistencia-title { font-weight: 700; font-size: 0.85rem; color: var(--text-dark); }
+    .assistencia-desc { font-size: 0.75rem; color: var(--text-medium); line-height: 1.3; }
+
+    /* =============================================
+       COMPARISON GRID
+       ============================================= */
+    .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; flex: 1; }
+    .comparison-card {
+      background: white; border-radius: var(--radius-lg); padding: 1.5rem;
+      box-shadow: var(--shadow-md); border-top: 4px solid;
+    }
+    .comparison-card.sinistro { border-top-color: var(--brand-purple); }
+    .comparison-card.assistencia { border-top-color: var(--brand-green-dark); }
+    .comparison-card h3 { font-family: 'Roboto Condensed', sans-serif; font-size: 1.2rem; font-weight: 800; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px; }
+    .comparison-card.sinistro h3 { color: var(--brand-purple); }
+    .comparison-card.assistencia h3 { color: var(--brand-green-dark); }
+    .comparison-card h3 svg { width: 22px; height: 22px; }
+    .comparison-card.sinistro h3 svg { fill: var(--brand-purple); }
+    .comparison-card.assistencia h3 svg { fill: var(--brand-green-dark); }
+    .comparison-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+    .comparison-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.85rem; color: var(--text-dark); line-height: 1.5; }
+    .comparison-list li svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; }
+    .comparison-card.sinistro .comparison-list li svg { fill: var(--brand-purple); }
+    .comparison-card.assistencia .comparison-list li svg { fill: var(--brand-green-dark); }
+
+    /* =============================================
+       COVER CONTENT (closing)
+       ============================================= */
+    .cover-content {
+      text-align: center; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; height: 100%; padding: 4rem;
+    }
+    .cover-content .cover-title {
+      color: #fff; font-family: 'Roboto Condensed', sans-serif;
+      font-size: 4rem; font-weight: 800; margin-bottom: 1rem;
+    }
+    .cover-content .cover-subtitle { color: rgba(255,255,255,0.7); font-size: 1.2rem; font-weight: 300; }
+
+    /* =============================================
+       HUD / NAVIGATION
+       ============================================= */
+    .hud-nav-buttons { position: fixed; bottom: 2rem; right: 2rem; display: flex; gap: 0.5rem; z-index: 100; }
+    .nav-btn {
+      width: 42px; height: 42px; border-radius: 50%; border: none;
+      background: rgba(255,255,255,0.95); box-shadow: var(--shadow-md);
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: all var(--transition-fast); color: var(--text-dark);
+    }
+    .nav-btn:hover:not(:disabled) { background: var(--brand-purple); color: white; transform: scale(1.1); }
+    .nav-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .nav-btn svg { width: 22px; height: 22px; fill: currentColor; }
+
+    .hud-footer { position: fixed; bottom: 2rem; left: 2rem; display: flex; align-items: center; gap: 1rem; z-index: 100; }
+    .hud-progress-indicators { display: flex; gap: 5px; }
+    .progress-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.15);
+      transition: all var(--transition-med); cursor: pointer;
+    }
+    .progress-dot.active { background: var(--brand-purple); width: 22px; border-radius: 4px; }
+    .hud-slide-number {
+      font-size: 0.72rem; color: var(--text-light); font-weight: 500;
+      font-family: 'Roboto Condensed', sans-serif; letter-spacing: 1px;
+    }
+
+    .keyboard-hint {
+      position: fixed; bottom: 5.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; align-items: center; gap: 5px;
+      background: rgba(0,0,0,0.7); color: white; padding: 7px 14px;
+      border-radius: 20px; font-size: 0.72rem; z-index: 100;
+      opacity: 1; transition: opacity 1s ease;
+    }
+    .keyboard-hint.hidden { opacity: 0; pointer-events: none; }
+    .keyboard-hint kbd { background: rgba(255,255,255,0.2); padding: 2px 7px; border-radius: 4px; font-family: inherit; font-weight: 600; }
+
+    /* Drawer */
+    .drawer-toggle {
+      position: fixed; top: 1.5rem; left: 1.5rem;
+      width: 42px; height: 42px; border-radius: 50%; border: none;
+      background: rgba(255,255,255,0.95); box-shadow: var(--shadow-md);
+      cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 110;
+      transition: all var(--transition-fast);
+    }
+    .drawer-toggle:hover { background: var(--brand-purple); color: white; }
+    .drawer-toggle svg { width: 22px; height: 22px; fill: currentColor; }
+
+    .nav-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 200; opacity: 0; visibility: hidden; transition: all var(--transition-med); }
+    .nav-backdrop.active { opacity: 1; visibility: visible; }
+
+    .nav-drawer {
+      position: fixed; top: 0; left: -320px; width: 320px; height: 100vh;
+      background: white; z-index: 210; box-shadow: var(--shadow-lg);
+      transition: left var(--transition-med); display: flex; flex-direction: column; overflow-y: auto;
+    }
+    .nav-drawer.active { left: 0; }
+    .drawer-header { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 1.5rem; border-bottom: 1px solid #eee; }
+    .drawer-title { font-family: 'Roboto Condensed', sans-serif; font-size: 1rem; font-weight: 700; color: var(--brand-purple-dark); }
+    .drawer-close { width: 30px; height: 30px; border-radius: 50%; border: none; background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .drawer-close svg { width: 18px; height: 18px; fill: var(--text-medium); }
+    .drawer-menu { list-style: none; padding: 0.8rem 0; }
+    .drawer-menu-item {
+      padding: 10px 1.5rem; font-size: 0.85rem; color: var(--text-medium);
+      cursor: pointer; transition: all var(--transition-fast);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .drawer-menu-item:hover { background: rgba(107, 79, 179, 0.05); color: var(--brand-purple); }
+    .drawer-menu-item.active { background: rgba(107, 79, 179, 0.08); color: var(--brand-purple); font-weight: 600; }
+    .drawer-item-num { font-family: 'Roboto Condensed', sans-serif; font-weight: 700; font-size: 0.75rem; color: var(--text-light); width: 22px; }
+
+    /* =============================================
+       LOGO STRIP
+       ============================================= */
+    .logo-strip {
+      display: flex; align-items: center; gap: 1.5rem; margin-top: 2.5rem;
+    }
+    .logo-strip img { height: 34px; object-fit: contain; }
+    .logo-divider { width: 1px; height: 30px; background: rgba(255,255,255,0.2); }
+
+    /* =============================================
+       OBRIGATÓRIO LEGAL CARD
+       ============================================= */
+    .legal-card {
+      background: linear-gradient(135deg, #1a1a2e, #2d1b69);
+      border-radius: var(--radius-lg); padding: 2rem 2.5rem;
+      color: white; display: flex; gap: 2rem; align-items: center;
+    }
+    .legal-icon-box {
+      width: 80px; height: 80px; min-width: 80px; border-radius: 50%;
+      background: rgba(255,255,255,0.1); border: 2px solid var(--brand-green);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .legal-icon-box svg { width: 36px; height: 36px; fill: var(--brand-green); }
+    .legal-card h3 { font-family: 'Roboto Condensed', sans-serif; font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .legal-card p { font-size: 0.9rem; line-height: 1.6; opacity: 0.9; }
+    .legal-card .law-ref {
+      display: inline-block; margin-top: 0.5rem;
+      background: rgba(168,224,99,0.15); color: var(--brand-green);
+      padding: 4px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 600;
+    }
+
+    /* =============================================
+       ANIMATIONS
+       ============================================= */
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .slide.active .benefit-card,
+    .slide.active .eco-node,
+    .slide.active .assistencia-card,
+    .slide.active .process-step { animation: fadeInUp 0.6s ease forwards; }
+    .slide.active .benefit-card:nth-child(1) { animation-delay: 0.05s; }
+    .slide.active .benefit-card:nth-child(2) { animation-delay: 0.1s; }
+    .slide.active .benefit-card:nth-child(3) { animation-delay: 0.15s; }
+    .slide.active .benefit-card:nth-child(4) { animation-delay: 0.2s; }
+    .slide.active .benefit-card:nth-child(5) { animation-delay: 0.25s; }
+    .slide.active .benefit-card:nth-child(6) { animation-delay: 0.3s; }
+    .slide.active .eco-node:nth-child(1) { animation-delay: 0.1s; }
+    .slide.active .eco-node:nth-child(2) { animation-delay: 0.3s; }
+    .slide.active .eco-node:nth-child(3) { animation-delay: 0.5s; }
+    .slide.active .assistencia-card:nth-child(n) { animation-delay: calc(0.05s * var(--i, 1)); }
+    .slide.active .process-step:nth-child(1) { animation-delay: 0.1s; }
+    .slide.active .process-step:nth-child(2) { animation-delay: 0.25s; }
+    .slide.active .process-step:nth-child(3) { animation-delay: 0.4s; }
+    .slide.active .process-step:nth-child(4) { animation-delay: 0.55s; }
+
+    }
+
+    /* Print styles for exporting all slides beautifully as PDF */
+    @media print {
+      @page {
+        size: 1600px 900px;
+        margin: 0;
+      }
+      body, html {
+        overflow: visible !important;
+        height: auto !important;
+        width: auto !important;
+        background: #f8f7fc !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .presentation-container {
+        display: block !important;
+        height: auto !important;
+        width: auto !important;
+        overflow: visible !important;
+      }
+      .slide {
+        position: relative !important;
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        height: 900px !important;
+        width: 1600px !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+      }
+      /* Ensure slide animations do not hide components on print */
+      .slide .benefit-card,
+      .slide .eco-node,
+      .slide .assistencia-card,
+      .slide .process-step {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+      }
+      .hud-nav-buttons, .hud-footer, .keyboard-hint, .drawer-toggle, .nav-drawer, .nav-backdrop {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="presentation-container">
+
+    <!-- HUD NAV -->
+    <div class="hud-nav-buttons">
+      <button class="nav-btn" id="fullscreen-btn" title="Tela Cheia"><svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button>
+      <button class="nav-btn" id="prev-btn" title="Anterior" disabled><svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></button>
+      <button class="nav-btn" id="next-btn" title="Próximo"><svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></button>
+    </div>
+    <div class="hud-footer">
+      <div class="hud-progress-indicators" id="progress-dots"></div>
+      <div class="hud-slide-number" id="slide-num">01 / 14</div>
+    </div>
+    <div class="keyboard-hint" id="keyboard-hint"><span>Use</span><kbd>←</kbd><kbd>→</kbd><span>ou</span><kbd>Espaço</kbd><span>para navegar</span></div>
+
+    <!-- DRAWER -->
+    <button class="drawer-toggle" id="drawer-toggle" title="Menu"><svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></button>
+    <div class="nav-backdrop" id="drawer-backdrop"></div>
+    <nav class="nav-drawer" id="nav-drawer">
+      <div class="drawer-header">
+        <h3 class="drawer-title">Treinamento Seguro Imobiliário</h3>
+        <button class="drawer-close" id="drawer-close"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+      </div>
+      <ul class="drawer-menu" id="drawer-menu">
+        <li class="drawer-menu-item active" data-slide="0"><span class="drawer-item-num">01</span> Capa</li>
+        <li class="drawer-menu-item" data-slide="1"><span class="drawer-item-num">02</span> Obrigatoriedade Legal</li>
+        <li class="drawer-menu-item" data-slide="2"><span class="drawer-item-num">03</span> Lado Bom Seguros</li>
+        <li class="drawer-menu-item" data-slide="3"><span class="drawer-item-num">04</span> Yelum Seguradora</li>
+        <li class="drawer-menu-item" data-slide="4"><span class="drawer-item-num">05</span> O Produto</li>
+        <li class="drawer-menu-item" data-slide="5"><span class="drawer-item-num">06</span> Ecossistema Integrado</li>
+        <li class="drawer-menu-item" data-slide="6"><span class="drawer-item-num">07</span> Benefícios da Contratação</li>
+        <li class="drawer-menu-item" data-slide="7"><span class="drawer-item-num">08</span> Coberturas e LMI — Residencial</li>
+        <li class="drawer-menu-item" data-slide="8"><span class="drawer-item-num">09</span> Coberturas e LMI — Comercial</li>
+        <li class="drawer-menu-item" data-slide="9"><span class="drawer-item-num">10</span> Detalhamento das Coberturas</li>
+        <li class="drawer-menu-item" data-slide="10"><span class="drawer-item-num">11</span> Sinistro — Como Acionar</li>
+        <li class="drawer-menu-item" data-slide="11"><span class="drawer-item-num">12</span> Assistências 24h</li>
+        <li class="drawer-menu-item" data-slide="12"><span class="drawer-item-num">13</span> Sinistro vs. Assistência</li>
+        <li class="drawer-menu-item" data-slide="13"><span class="drawer-item-num">14</span> Encerramento</li>
+      </ul>
+    </nav>
+
+
+    <!-- ================================================================
+         SLIDE 01: CAPA
+         ================================================================ -->
+    <section class="slide cover-theme active" id="slide-0">
+      <div class="slide-content" style="justify-content: center; align-items: flex-start;">
+        <div></div>
+        <div>
+          <span class="slide-subtitle">TREINAMENTO | Seguro Imobiliário</span>
+          <h1 class="slide-title">SEGURO<br>IMOBILIÁRIO</h1>
+          <p class="slide-description">TREINAMENTO COMERCIAL &amp; INSTITUCIONAL</p>
+        </div>
+        <div class="logo-strip" style="align-items: center;">
+          <img src="src/assets/logo_yelum.webp" alt="Yelum Seguradora" style="height: 52px; object-fit: contain; filter: brightness(0) invert(1);">
+          <div class="logo-divider"></div>
+          <img src="src/assets/logo_lado_bom.svg" alt="Lado Bom Seguros" style="height: 38px; object-fit: contain; filter: brightness(0) invert(1);">
+          <div class="logo-divider"></div>
+          <img src="src/assets/logo_credito_real.png" alt="Crédito Real" style="height: 38px; object-fit: contain; filter: brightness(0) invert(1);">
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SLIDE 02: OBRIGATORIEDADE LEGAL
+         ================================================================ -->
+    <section class="slide" id="slide-1">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Fundamento Legal</span>
+          <h2 class="slide-title">O Seguro Incêndio é Obrigatório</h2>
+        </header>
+
+        <div class="legal-card">
+          <div class="legal-icon-box">
+            <!-- Gavel/law icon -->
+            <svg viewBox="0 0 24 24"><path d="M1 21h12v2H1v-2zM5.245 8.07l2.83-2.827 14.14 14.142-2.828 2.828L5.245 8.07zM12.317 1l5.657 5.656-2.83 2.83-5.654-5.66L12.317 1zM3.825 9.485l5.657 5.657-2.828 2.828-5.657-5.657 2.828-2.828z"/></svg>
+          </div>
+          <div>
+            <h3>Lei do Inquilinato — Lei nº 8.245/91</h3>
+            <p>
+              O seguro contra incêndio é <strong>obrigatório por lei</strong> para todos os imóveis alugados, sejam eles residenciais ou comerciais. A Lei do Inquilinato (Lei nº 8.245/91) exige a contratação do seguro para garantir a proteção do patrimônio durante o período de locação.
+            </p>
+            <span class="law-ref">Art. 22, VIII — Obrigação do locador</span>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 0.5rem;">
+          <div class="benefit-card">
+            <div class="benefit-icon purple">
+              <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+            </div>
+            <div class="benefit-title">Exigência Legal</div>
+            <div class="benefit-desc">A contratação do seguro incêndio é uma obrigação prevista na Lei do Inquilinato. O descumprimento pode gerar responsabilidade civil ao locador e à imobiliária administradora.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon green">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <div class="benefit-title">Proteção Patrimonial</div>
+            <div class="benefit-desc">Protege o imóvel e os bens do inquilino contra os principais riscos: incêndio, explosão, queda de raio e fumaça. O imóvel locado deve ser devolvido nas mesmas condições em que foi entregue.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon gold">
+              <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+            </div>
+            <div class="benefit-title">Segurança Jurídica</div>
+            <div class="benefit-desc">A contratação do seguro protege a imobiliária, o proprietário e o inquilino, evitando litígios e garantindo conformidade com a legislação vigente em caso de sinistro.</div>
+          </div>
+        </div>
+
+        <div class="highlight-footer" style="background-color: rgba(107, 79, 179, 0.05); border-left-color: var(--brand-purple);">
+          <div class="highlight-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></div>
+          <p class="highlight-text"><strong>Importante:</strong> Segundo a Yelum, a Lei nº 12.119/2009 reforça a exigência do seguro incêndio nos contratos de locação, sendo responsabilidade do locador assegurar a contratação.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SLIDE 03: LADO BOM SEGUROS
+         ================================================================ -->
+    <section class="slide" id="slide-2">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Quem Somos</span>
+          <h2 class="slide-title">Lado Bom Seguros</h2>
+        </header>
+
+        <p style="font-size: 1rem; line-height: 1.6; color: var(--text-dark); max-width: 900px;">
+          Somos uma <strong>joint venture</strong> entre o <strong>Grupo Rede Vistorias</strong> e o <strong>Grupo Brognoli</strong>, com o propósito de digitalizar e desburocratizar o setor de seguros, com foco no mercado imobiliário. Atuamos como <strong>corretora parceira oficial da Crédito Real</strong>, garantindo proximidade, agilidade e integração em toda a operação.
+        </p>
+
+        <div class="stats-row">
+          <div class="stat-circle"><div class="stat-value">+15 anos</div><div class="stat-label">de experiência<br>em seguros</div></div>
+          <div class="stat-circle"><div class="stat-value">+400</div><div class="stat-label">imobiliárias<br>parceiras</div></div>
+          <div class="stat-circle"><div class="stat-value">+100</div><div class="stat-label">escritórios<br>regionais</div></div>
+          <div class="stat-circle"><div class="stat-value">+50K</div><div class="stat-label">apólices emitidas<br>por ano</div></div>
+          <div class="stat-circle"><div class="stat-value">R$ 12MM</div><div class="stat-label">em indenizações<br>pagas por ano</div></div>
+          <div class="stat-circle"><div class="stat-value">R$ 4MM</div><div class="stat-label">em comissões<br>por ano</div></div>
+        </div>
+
+        <div style="margin-top: 0.3rem;">
+          <h3 style="font-family: 'Roboto Condensed', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--brand-purple-dark); margin-bottom: 0.6rem;">EM MENOS DE 1 ANO RECEBEMOS 2 PRÊMIOS:</h3>
+          <div class="awards-grid">
+            <div class="award-badge-card">
+              <div class="award-icon-wrapper"><svg viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v3c0 2.2 1.8 4 4 4h.7c.7 1.7 2.1 3 3.8 3.4V19H9v2h6v-2h-2.5v-1.6c1.7-.4 3.1-1.7 3.8-3.4h.7c2.2 0 4-1.8 4-4V7c0-1.1-.9-2-2-2z"/></svg></div>
+              <span class="award-text">Corretora Elite Porto de Consórcio</span>
+            </div>
+            <div class="award-badge-card">
+              <div class="award-icon-wrapper"><svg viewBox="0 0 24 24"><path d="M12 2l2.5 5.5H20l-4.5 4 2 6-5.5-3.5L6.5 18.5l2-6L4 7.5h5.5z"/></svg></div>
+              <span class="award-text">2ª maior corretora do Sul do Brasil (Porto)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SLIDE 04: YELUM SEGURADORA
+         ================================================================ -->
+    <section class="slide" id="slide-3">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Seguradora Parceira</span>
+          <h2 class="slide-title">Yelum Seguradora</h2>
+        </header>
+
+        <div class="message-card">
+          <p class="message-text">
+            A <strong>Yelum Seguradora</strong> (antiga HDI) é especializada no mercado imobiliário e faz parte do conglomerado alemão <strong>Grupo Talanx/HDI</strong>. Com mais de <strong>20 anos de atuação</strong> no segmento, possui presença em todo o território nacional e oferece o produto <strong>Seguro Imobiliário (Incêndio)</strong>, destinado a administradoras de imóveis que intermediam a relação locador/locatário.
+          </p>
+        </div>
+
+        <div class="yelum-stats">
+          <div class="yelum-stat">
+            <div class="yelum-stat-icon"><svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg></div>
+            <div class="yelum-stat-value">+20 anos</div>
+            <div class="yelum-stat-label">no mercado imobiliário</div>
+          </div>
+          <div class="yelum-stat">
+            <div class="yelum-stat-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></div>
+            <div class="yelum-stat-value">Nacional</div>
+            <div class="yelum-stat-label">Presença em todo Brasil</div>
+          </div>
+          <div class="yelum-stat">
+            <div class="yelum-stat-icon"><svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg></div>
+            <div class="yelum-stat-value">100%</div>
+            <div class="yelum-stat-label">Plataforma Digital</div>
+          </div>
+          <div class="yelum-stat">
+            <div class="yelum-stat-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+            <div class="yelum-stat-value">Grupo HDI</div>
+            <div class="yelum-stat-label">Solidez internacional</div>
+          </div>
+        </div>
+
+        <div class="product-features">
+          <div class="product-feature">
+            <div class="product-feature-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>
+            <span class="product-feature-text">Processo 100% online — contratação, gestão e sinistros pela plataforma digital</span>
+          </div>
+          <div class="product-feature">
+            <div class="product-feature-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>
+            <span class="product-feature-text">Taxas regionalizadas e simplificadas com comissão variável de até 65%</span>
+          </div>
+          <div class="product-feature">
+            <div class="product-feature-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>
+            <span class="product-feature-text">Vigência retroativa, parcelamento em até 12x sem juros (modalidade mensal) e pró-labore direto ao estipulante</span>
+          </div>
+        </div>
+
+        <div class="highlight-footer">
+          <div class="highlight-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></div>
+          <p class="highlight-text">Suporte: <strong>suporteriscospatrimoniais@hdi-yelum.com.br</strong> · Condições Gerais: <strong>yelumseguros.com.br</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SLIDE 05: O PRODUTO
+         ================================================================ -->
+    <section class="slide" id="slide-4">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Conheça o Produto</span>
+          <h2 class="slide-title">Seguro Imobiliário (Incêndio) — Visão Geral</h2>
+        </header>
+
+        <div class="product-overview">
+          <div class="product-highlight-box">
+            <h3>O que é o Seguro Imobiliário?</h3>
+            <p>É o seguro para proteção de casas, apartamentos e comércios contra os danos mais comuns em imóveis locados. Destinado a administradoras de imóveis que fazem a intermediação da relação locador/locatário.</p>
+            <p>Os imóveis locados devem ser devolvidos aos proprietários nas mesmas condições em que foram entregues. Para isso, o contrato de locação exige o seguro de incêndio conforme a Lei do Inquilinato.</p>
+            <div style="display: flex; gap: 0.8rem; margin-top: 0.3rem; flex-wrap: wrap;">
+              <span style="background: rgba(168,224,99,0.2); color: var(--brand-green); padding: 5px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 600;">Residencial Alvenaria</span>
+              <span style="background: rgba(168,224,99,0.2); color: var(--brand-green); padding: 5px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 600;">Residencial Madeira</span>
+              <span style="background: rgba(255,255,255,0.15); color: white; padding: 5px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 600;">Escritório e Consultório</span>
+              <span style="background: rgba(255,255,255,0.15); color: white; padding: 5px 12px; border-radius: 6px; font-size: 0.75rem; font-weight: 600;">Comércio e Serviço</span>
+            </div>
+          </div>
+
+          <div class="product-features">
+            <div class="product-feature">
+              <div class="product-feature-icon"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+              <span class="product-feature-text">Contratação por Prédio + Conteúdo, somente Prédio ou somente Conteúdo</span>
+            </div>
+            <div class="product-feature">
+              <div class="product-feature-icon"><svg viewBox="0 0 24 24"><path d="M19.77 7.23l.01-.01-3.72-3.72L15 4.56l2.11 2.11c-.94.36-1.61 1.26-1.61 2.33 0 1.38 1.12 2.5 2.5 2.5.36 0 .69-.08 1-.21v7.21c0 .55-.45 1-1 1s-1-.45-1-1V14c0-1.1-.9-2-2-2h-1V5c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v16h10v-7.5h1.5v5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V9c0-.69-.28-1.32-.73-1.77zM12 10H6V5h6v5z"/></svg></div>
+              <span class="product-feature-text">Cobertura obrigatória de Incêndio + coberturas adicionais opcionais</span>
+            </div>
+            <div class="product-feature">
+              <div class="product-feature-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div>
+              <span class="product-feature-text">Imóveis desocupados cobertos por até 90 dias (desde que locados no início)</span>
+            </div>
+            <div class="product-feature">
+              <div class="product-feature-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg></div>
+              <span class="product-feature-text">Faturamento coletivo (anual até 10x ou mensal 12x s/ juros) com boleto em nome da imobiliária</span>
+            </div>
+            <div class="product-feature">
+              <div class="product-feature-icon"><svg viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div>
+              <span class="product-feature-text">Assistência 24h inclusa — Plano Imobiliário Básico (Residencial) e C&amp;S (Comercial)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SLIDE 06: ECOSSISTEMA INTEGRADO
+         ================================================================ -->
+    <section class="slide" id="slide-5">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Diferencial Exclusivo</span>
+          <h2 class="slide-title">Ecossistema Integrado</h2>
+        </header>
+        <div class="ecosystem-layout">
+          <div class="ecosystem-nodes">
+            <div class="eco-node cr">
+              <div class="eco-node-icon"><svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg></div>
+              <div class="eco-node-role">Imobiliária</div>
+              <div class="eco-node-name">Crédito Real</div>
+              <div class="eco-node-desc">Administra o imóvel, gerencia a locação e é o ponto de contato do proprietário e inquilino.</div>
+            </div>
+            <div class="eco-connector">
+              <div class="eco-connector-line"></div>
+              <div class="eco-connector-icon"><svg viewBox="0 0 24 24"><path d="M7.77 6.76L6.23 5.48.82 12l5.41 6.52 1.54-1.28L3.42 12l4.35-5.24zM7 13h2v-2H7v2zm10-2h-2v2h2v-2zm-6 2h2v-2h-2v2zm6.77-7.52l-1.54 1.28L20.58 12l-4.35 5.24 1.54 1.28L23.18 12l-5.41-6.52z"/></svg></div>
+              <div class="eco-connector-line"></div>
+            </div>
+            <div class="eco-node lb">
+              <div class="eco-node-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+              <div class="eco-node-role">Corretora</div>
+              <div class="eco-node-name">Lado Bom Seguros</div>
+              <div class="eco-node-desc">Corretora parceira oficial. Gerencia apólices, intermedia sinistros e conecta toda a cadeia.</div>
+            </div>
+            <div class="eco-connector">
+              <div class="eco-connector-line"></div>
+              <div class="eco-connector-icon"><svg viewBox="0 0 24 24"><path d="M7.77 6.76L6.23 5.48.82 12l5.41 6.52 1.54-1.28L3.42 12l4.35-5.24zM7 13h2v-2H7v2zm10-2h-2v2h2v-2zm-6 2h2v-2h-2v2zm6.77-7.52l-1.54 1.28L20.58 12l-4.35 5.24 1.54 1.28L23.18 12l-5.41-6.52z"/></svg></div>
+              <div class="eco-connector-line"></div>
+            </div>
+            <div class="eco-node yl">
+              <div class="eco-node-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg></div>
+              <div class="eco-node-role">Seguradora</div>
+              <div class="eco-node-name">Yelum</div>
+              <div class="eco-node-desc">Seguradora especializada, responsável pelas coberturas, análise de sinistros e indenizações.</div>
+            </div>
+          </div>
+          <div class="ecosystem-message">
+            <p><strong>Contratar com a Lado Bom Seguros significa estar dentro de um ecossistema.</strong><br>Qualquer intercorrência — sinistro, dúvida, assistência — todos os agentes estão <strong>conectados e prontos para ajudar</strong>. Imobiliária, Corretora e Seguradora trabalhando juntas.</p>
+          </div>
+          <div class="highlight-footer" style="max-width: 800px;">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg></div>
+            <p class="highlight-text"><strong>Diferencial:</strong> Não é apenas um seguro — é uma rede de proteção integrada com comunicação direta entre CR, Lado Bom e Yelum.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SLIDE 07: BENEFÍCIOS
+         ================================================================ -->
+    <section class="slide" id="slide-6">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Por que Contratar?</span>
+          <h2 class="slide-title">Benefícios da Contratação</h2>
+        </header>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon purple"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+            <div class="benefit-title">Conformidade Legal</div>
+            <div class="benefit-desc">Cumprimento da Lei do Inquilinato (Lei nº 8.245/91) que exige o seguro contra incêndio em todos os imóveis locados — residenciais ou comerciais.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon green"><svg viewBox="0 0 24 24"><path d="M7.77 6.76L6.23 5.48.82 12l5.41 6.52 1.54-1.28L3.42 12l4.35-5.24zM7 13h2v-2H7v2zm10-2h-2v2h2v-2zm-6 2h2v-2h-2v2zm6.77-7.52l-1.54 1.28L20.58 12l-4.35 5.24 1.54 1.28L23.18 12l-5.41-6.52z"/></svg></div>
+            <div class="benefit-title">Ecossistema Conectado</div>
+            <div class="benefit-desc">Imobiliária (CR), Corretora (Lado Bom) e Seguradora (Yelum) integradas. Qualquer ocorrência é tratada de forma ágil por todos os agentes da cadeia.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon gold"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div>
+            <div class="benefit-title">Assistência 24h</div>
+            <div class="benefit-desc">Serviços emergenciais incluídos: chaveiro, eletricista, encanador, vidraceiro, desentupimento e outros — atendimento a qualquer hora pela rede credenciada.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon blue"><svg viewBox="0 0 24 24"><path d="M20 18c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/></svg></div>
+            <div class="benefit-title">Operação 100% Digital</div>
+            <div class="benefit-desc">Emissão de apólices, gestão de carteira e acionamento de sinistros 100% online. Sem burocracia, com total rastreabilidade e transparência.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon teal"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
+            <div class="benefit-title">Diferenciais para Todos</div>
+            <div class="benefit-desc"><strong>Imobiliária:</strong> diferencial de mercado e pró-labore direto. <strong>Proprietário:</strong> patrimônio protegido. <strong>Inquilino:</strong> seguro completo incluindo conteúdo do imóvel.</div>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon orange"><svg viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v3c0 2.2 1.8 4 4 4h.7c.7 1.7 2.1 3 3.8 3.4V19H9v2h6v-2h-2.5v-1.6c1.7-.4 3.1-1.7 3.8-3.4h.7c2.2 0 4-1.8 4-4V7c0-1.1-.9-2-2-2z"/></svg></div>
+            <div class="benefit-title">Parceiro Premiado</div>
+            <div class="benefit-desc">A Lado Bom é corretora premiada — Elite Porto de Consórcio e 2ª maior do Sul do Brasil. Solidez e experiência reconhecidos pelo mercado.</div>
+          </div>
+        </div>
+        <div class="highlight-footer">
+          <div class="highlight-icon"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg></div>
+          <p class="highlight-text"><strong>Contratar com a Lado Bom</strong> viabiliza um ecossistema onde CR + Lado Bom + Yelum estão integrados e prontos para uma experiência completa.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SLIDE 08: COBERTURAS E LMI — RESIDENCIAL
+         ================================================================ -->
+    <section class="slide" id="slide-7">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Coberturas e Limites</span>
+          <h2 class="slide-title">LMI — Residencial</h2>
+        </header>
+        <div class="coverage-layout">
+          <div class="message-card">
+            <p class="message-text">Limites Máximos de Indenização (LMI) disponíveis para contratação no produto <strong>Seguro Imobiliário (Incêndio)</strong> — segmento residencial. Os valores abaixo representam o teto máximo por cobertura.</p>
+          </div>
+          <div class="coverage-table-wrapper">
+            <table class="coverage-table">
+              <thead><tr><th>Cobertura</th><th>Residencial Alvenaria</th><th>Residencial Madeira</th><th>Tipo</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Incêndio / Explosão / Fumaça / Queda de Aeronaves</strong> (Prédio e Conteúdo)</td><td class="lmi-value">R$ 2.500.000,00</td><td class="lmi-value">R$ 375.000,00</td><td><span class="coverage-badge basic">Obrigatória</span></td></tr>
+                <tr><td><strong>Perda ou Pagamento de Aluguel</strong></td><td class="lmi-value">R$ 200.000,00</td><td class="lmi-value">R$ 37.500,00</td><td><span class="coverage-badge additional">Adicional</span></td></tr>
+                <tr><td><strong>Danos Elétricos</strong></td><td class="lmi-value">R$ 125.000,00</td><td class="lmi-value">R$ 18.750,00</td><td><span class="coverage-badge additional">Adicional</span></td></tr>
+                <tr><td><strong>Vendaval / Furacão / Ciclone / Tornado / Granizo</strong></td><td class="lmi-value">R$ 250.000,00</td><td class="lmi-value">R$ 37.500,00</td><td><span class="coverage-badge additional">Adicional</span></td></tr>
+                <tr><td><strong>Responsabilidade Civil Familiar</strong></td><td class="lmi-value">R$ 100.000,00</td><td class="lmi-value">R$ 37.500,00</td><td><span class="coverage-badge additional">Adicional</span></td></tr>
+                <tr><td><strong>Quebra de Vidros / Espelhos / Mármores e Granitos</strong></td><td class="lmi-value">R$ 10.000,00</td><td class="lmi-value">R$ 12.500,00</td><td><span class="coverage-badge additional">Adicional</span></td></tr>
+                <tr><td><strong>Impacto de Veículos Terrestres</strong></td><td class="lmi-value">R$ 75.000,00</td><td class="lmi-value">R$ 37.500,00</td><td><span class="coverage-badge additional">Adicional</span></td></tr>
+                <tr><td><strong>Rompimento de Tubulações de Água</strong></td><td class="lmi-value">R$ 10.000,00</td><td class="lmi-value">R$ 12.500,00</td><td><span class="coverage-badge additional">Adicional</span></td></tr>
+                <tr><td><strong>Roubo e/ou Subtração de Bens com Vestígios</strong></td><td class="lmi-value">R$ 150.000,00</td><td class="lmi-value">R$ 12.500,00</td><td><span class="coverage-badge additional">Adicional</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="highlight-footer">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></div>
+            <p class="highlight-text"><strong>Participação Obrigatória do Segurado:</strong> Queda de raio — 10% dos prejuízos (mín. R$ 400). Vendaval — 10% dos prejuízos (mín. R$ 400). Aluguel — período indenitário máximo de 6 meses.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SLIDE 09: COBERTURAS E LMI — COMERCIAL
+         ================================================================ -->
+    <section class="slide" id="slide-8">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Coberturas e Limites</span>
+          <h2 class="slide-title">LMI — Comercial</h2>
+        </header>
+        <div class="coverage-layout">
+          <div class="coverage-table-wrapper">
+            <table class="coverage-table">
+              <thead><tr><th>Cobertura</th><th>Escritório e Consultório</th><th>Comércio e Serviço</th><th>Tipo</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Incêndio / Raio / Explosão / Implosão / Fumaça / Queda de Aeronaves</strong> (Prédio e Conteúdo)</td><td class="lmi-value">R$ 2.500.000,00</td><td class="lmi-value">R$ 1.000.000,00</td><td><span class="coverage-badge basic">Obrigatória</span></td></tr>
+                <tr><td><strong>Perda ou Pagamento de Aluguel a Terceiros</strong></td><td class="lmi-value">R$ 200.000,00</td><td class="lmi-value">R$ 80.000,00</td><td><span class="coverage-badge additional">Adicional</span></td></tr>
+                <tr><td><strong>Danos Elétricos</strong></td><td class="lmi-value">R$ 62.500,00</td><td class="lmi-value">R$ 62.500,00</td><td><span class="coverage-badge additional">Adicional</span></td></tr>
+                <tr><td><strong>Vendaval / Ciclone / Tornado / Granizo / Impacto de Veículos</strong></td><td class="lmi-value">R$ 93.750,00</td><td class="lmi-value">R$ 93.750,00</td><td><span class="coverage-badge additional">Adicional</span></td></tr>
+                <tr><td><strong>Responsabilidade Civil — Estab. Comerciais e Industriais</strong></td><td class="lmi-value">R$ 100.000,00</td><td class="lmi-value">R$ 100.000,00</td><td><span class="coverage-badge additional">Adicional</span></td></tr>
+                <tr><td><strong>Quebra de Vidros</strong></td><td class="lmi-value">R$ 10.000,00</td><td class="lmi-value">R$ 10.000,00</td><td><span class="coverage-badge additional">Adicional</span></td></tr>
+                <tr><td><strong>Danos por Problemas Hidráulicos</strong></td><td class="lmi-value">R$ 50.000,00</td><td class="lmi-value">R$ 50.000,00</td><td><span class="coverage-badge additional">Adicional</span></td></tr>
+                <tr><td><strong>Roubo e/ou Subtração Mediante Arrombamento</strong></td><td class="lmi-value">R$ 50.000,00</td><td class="lmi-value">R$ 50.000,00</td><td><span class="coverage-badge additional">Adicional</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="highlight-footer">
+            <div class="highlight-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></div>
+            <p class="highlight-text"><strong>Participação Obrigatória — Comercial:</strong> Queda de raio — 10% dos prejuízos (mín. R$ 750). Vendaval — 10% dos prejuízos (mín. R$ 900). Aluguel — período indenitário máximo de 6 meses.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SLIDE 10: DETALHAMENTO DAS COBERTURAS
+         ================================================================ -->
+    <section class="slide" id="slide-9">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Detalhamento Técnico</span>
+          <h2 class="slide-title">O que Cada Cobertura Protege</h2>
+        </header>
+        <div class="coverage-layout">
+          <div class="coverage-table-wrapper" style="flex: 1;">
+            <table class="coverage-table">
+              <thead><tr><th style="width: 25%;">Cobertura</th><th>Riscos Cobertos</th><th style="width: 20%;">Exclusões / Obs.</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Incêndio / Raio / Explosão</strong></td><td>Incêndio imprevisto, queda de raio no imóvel, explosão (inclusive panela de pressão), danos por fumaça, queda de aeronaves ou objetos.</td><td>Cobertura obrigatória</td></tr>
+                <tr><td><strong>Perda/Pgto de Aluguel</strong></td><td>Despesas de aluguel em decorrência de sinistro coberto. Proprietário: cobre perda de aluguel + despesas contratuais. Inquilino: cobre o pagamento ao proprietário. Inclui diárias de hospedagem alternativa.</td><td>Período indenitário máx. 6 meses</td></tr>
+                <tr><td><strong>Danos Elétricos</strong></td><td>Perdas a equipamentos eletroeletrônicos ou instalações elétricas por calor gerado por acidente elétrico, variações anormais de tensão, curto-circuito ou descargas elétricas.</td><td>—</td></tr>
+                <tr><td><strong>Vendaval / Granizo</strong></td><td>Danos por vendaval (≥ 54 km/h), furacão (≥ 90 km/h), geada, ciclone, tornado e granizo.</td><td>Excluídos: toldos, telheiros, lonas, marquises, pergolados</td></tr>
+                <tr><td><strong>Resp. Civil Familiar</strong></td><td>Danos involuntários corporais ou materiais a terceiros causados pelo segurado, cônjuge, filhos menores, inquilino, empregados domésticos ou animais. Inclui danos às áreas comuns do condomínio.</td><td>Residencial</td></tr>
+                <tr><td><strong>Roubo/Subtração</strong></td><td>Perdas e danos a bens do imóvel (equipamentos, móveis, utensílios). Celulares/tablets até R$ 2.500 c/ NF. Instrumentos musicais até R$ 1.000 c/ NF. Inclui arrastão (apartamento).</td><td>Fora do local não há cobertura p/ celulares e instrumentos</td></tr>
+                <tr><td><strong>Quebra de Vidros</strong></td><td>Vidros, espelhos, mármores, granitos, cooktop, box de banheiro, vidros de sacada, aparelhos sanitários (louças) — instalados de forma fixa. Inclui reparo de encaixes e vedação provisória.</td><td>Exceto riscos, lascas ou pequenas avarias</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 12: SINISTRO — COMO ACIONAR
+         ================================================================ -->
+    <section class="slide" id="slide-10">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Sinistros</span>
+          <h2 class="slide-title">Como Acionar o Seguro — Processo de Sinistro</h2>
+        </header>
+
+        <div class="message-card">
+          <p class="message-text"><strong>Sinistro</strong> é a ocorrência de um evento previsto na apólice que causa danos ao segurado. É o momento em que o seguro é efetivamente utilizado para indenização financeira ou reparo direto.</p>
+        </div>
+
+        <div class="process-timeline">
+          <div class="process-step"><div class="process-step-number">1</div><div class="process-step-title">Solicitar Apólice</div><div class="process-step-desc">Solicitar a apólice vigente à Crédito Real. Verificar coberturas ativas e vigência.</div></div>
+          <div class="process-step"><div class="process-step-number">2</div><div class="process-step-title">Preencher Link</div><div class="process-step-desc">Registrar o sinistro no formulário online com dados do segurado e descrição do ocorrido.</div></div>
+          <div class="process-step"><div class="process-step-number">3</div><div class="process-step-title">Protocolo + Curadoria</div><div class="process-step-desc">Lado Bom protocola junto à seguradora e realiza a curadoria de toda a documentação.</div></div>
+          <div class="process-step"><div class="process-step-number">4</div><div class="process-step-title">Análise</div><div class="process-step-desc">Seguradora analisa em 15 a 30 dias. Pode solicitar vistoria ou documentos adicionais.</div></div>
+          <div class="process-step"><div class="process-step-number">5</div><div class="process-step-title">Pagamento</div><div class="process-step-desc">Aprovado: Termo de Pagamento assinado. Pagamento em até 30 dias após assinatura.</div></div>
+        </div>
+
+        <div class="docs-grid">
+          <div class="doc-item"><div class="doc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13z"/></svg></div><span class="doc-text">CPF do Segurado + Comprovante de Endereço</span></div>
+          <div class="doc-item"><div class="doc-icon"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg></div><span class="doc-text">Fotos detalhadas dos danos + B.O. (se aplicável)</span></div>
+          <div class="doc-item"><div class="doc-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div><span class="doc-text">Orçamento detalhado (mão de obra + material separados)</span></div>
+          <div class="doc-item"><div class="doc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13z"/></svg></div><span class="doc-text">Contrato de locação com a Crédito Real</span></div>
+        </div>
+
+        <div class="prazos-cards">
+          <div class="prazo-card"><div class="prazo-value">15–30 dias</div><div class="prazo-label">Análise da Seguradora</div><div class="prazo-desc">Após documentação completa</div></div>
+          <div class="prazo-card"><div class="prazo-value">45–90 dias</div><div class="prazo-label">Prazo Total Estimado</div><div class="prazo-desc">Do registro ao pagamento</div></div>
+          <div class="prazo-card"><div class="prazo-value">Manuela</div><div class="prazo-label">Supervisora de Sinistros</div><div class="prazo-desc">Acompanha todo o processo</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SLIDE 13: ASSISTÊNCIAS 24H
+         ================================================================ -->
+    <section class="slide" id="slide-11">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Serviços Incluídos</span>
+          <h2 class="slide-title">Assistências 24 Horas</h2>
+        </header>
+        <div class="message-card">
+          <p class="message-text">Todos os seguros incluem <strong>assistência 24h</strong> pela rede credenciada <strong>Fácil Assist</strong>. O acionamento é direto pelo telefone <strong>(48) 99935-9366</strong> — 24h por dia, 7 dias por semana. O número pode ser repassado diretamente ao cliente.</p>
+        </div>
+        <div class="assistencia-grid">
+          <div class="assistencia-card" style="--i:1"><div class="assistencia-icon"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM15.1 8H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg></div><div class="assistencia-title">Chaveiro</div><div class="assistencia-desc">Abertura emergencial da porta principal (chave perdida, fechadura travada)</div></div>
+          <div class="assistencia-card" style="--i:2"><div class="assistencia-icon"><svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg></div><div class="assistencia-title">Eletricista</div><div class="assistencia-desc">Curto-circuito, chuveiro elétrico, tomadas com defeito, troca de lâmpadas</div></div>
+          <div class="assistencia-card" style="--i:3"><div class="assistencia-icon"><svg viewBox="0 0 24 24"><path d="M12.5 6.9c1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85z"/></svg></div><div class="assistencia-title">Encanador</div><div class="assistencia-desc">Troca de sifão, torneira, registro, kit caixa acoplada — vazamentos aparentes</div></div>
+          <div class="assistencia-card" style="--i:4"><div class="assistencia-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12z"/></svg></div><div class="assistencia-title">Vidraceiro</div><div class="assistencia-desc">Substituição emergencial de vidros quebrados do imóvel</div></div>
+          <div class="assistencia-card" style="--i:5"><div class="assistencia-icon"><svg viewBox="0 0 24 24"><path d="M19.36 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.64-4.96z"/></svg></div><div class="assistencia-title">Desentupimento</div><div class="assistencia-desc">Ralos, pias, vasos sanitários e tubulações aparentes</div></div>
+          <div class="assistencia-card" style="--i:6"><div class="assistencia-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div><div class="assistencia-title">Vigilância</div><div class="assistencia-desc">Segurança e vigilância do imóvel após sinistro</div></div>
+          <div class="assistencia-card" style="--i:7"><div class="assistencia-icon"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div><div class="assistencia-title">Cobertura de Telhado</div><div class="assistencia-desc">Cobertura provisória emergencial de telhado danificado</div></div>
+          <div class="assistencia-card" style="--i:8"><div class="assistencia-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4V4c0-1.1-.9-2-2-2z"/></svg></div><div class="assistencia-title">Guarda de Móveis</div><div class="assistencia-desc">Mudança e guarda provisória de móveis e utensílios</div></div>
+        </div>
+        <div class="highlight-footer">
+          <div class="highlight-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg></div>
+          <p class="highlight-text"><strong>Plano Comercial:</strong> Inclui serviços adicionais — eletricista, encanador, segurança, tapume, limpeza, recuperação de veículos, reparo de rede telefônica e regresso antecipado por sinistro.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SLIDE 14: SINISTRO vs ASSISTÊNCIA
+         ================================================================ -->
+    <section class="slide" id="slide-12">
+      <div class="slide-content">
+        <header class="slide-header">
+          <span class="slide-subtitle">Entenda a Diferença</span>
+          <h2 class="slide-title">Sinistro vs. Assistência</h2>
+        </header>
+        <div class="comparison-grid">
+          <div class="comparison-card sinistro">
+            <h3><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13z"/></svg> Sinistro</h3>
+            <ul class="comparison-list">
+              <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg><span>Evento coberto pela apólice — requer documentação formal</span></li>
+              <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg><span>Prazo de análise: 15 a 30 dias após documentação completa</span></li>
+              <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg><span>Indenização financeira (depósito) ou reparo direto</span></li>
+              <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg><span>Registrar no link + acionar Lado Bom + enviar documentação</span></li>
+              <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg><span><strong>Exemplos:</strong> Incêndio, roubo, vendaval, danos elétricos graves, alagamento com danos a terceiros</span></li>
+            </ul>
+          </div>
+          <div class="comparison-card assistencia">
+            <h3><svg viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg> Assistência 24h</h3>
+            <ul class="comparison-list">
+              <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg><span>Serviço emergencial incluído — acionamento simplificado</span></li>
+              <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg><span>Atendimento rápido — geralmente em poucas horas</span></li>
+              <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg><span>Prestação de serviço no local por rede credenciada</span></li>
+              <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg><span>Ligar direto para <strong>(48) 99935-9366</strong> — 24h por dia</span></li>
+              <li><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg><span><strong>Exemplos:</strong> Chaveiro, eletricista, encanador, vidraceiro, troca de lâmpada</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="message-card" style="border-left-color: var(--brand-orange);">
+          <p class="message-text"><strong>Casos que podem ser ambos:</strong> Vazamento aparente (sifão/torneira) → Assistência. Se causou dano a terceiros → Sinistro de Responsabilidade Civil. Curto-circuito com falha na tomada → Assistência. Se queimou eletrodoméstico → Sinistro de Danos Elétricos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SLIDE 15: ENCERRAMENTO
+         ================================================================ -->
+    <section class="slide cover-theme" id="slide-13">
+      <div class="cover-content">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="var(--brand-green)"/>
+          <path d="M2 17L12 22L22 17" stroke="var(--brand-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 12L12 17L22 12" stroke="var(--brand-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h1 class="cover-title" style="font-size: 3.5rem; margin-top: 1.5rem;">Obrigado</h1>
+        <p class="cover-subtitle" style="margin-bottom: 0.5rem;">Juntos, protegemos o que importa.</p>
+        <p class="cover-subtitle" style="font-size: 0.9rem; opacity: 0.4;">Lado Bom Seguros · Crédito Real · Yelum Seguradora</p>
+
+        <div style="display: flex; justify-content: center; gap: 4rem; margin-top: 3rem; align-items: center;">
+          <div style="text-align: center;">
+            <div style="height: 60px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem;">
+              <img src="src/assets/logo_lado_bom.svg" alt="Lado Bom Seguros" style="height: 100%; max-height: 45px; object-fit: contain; filter: brightness(0) invert(1);">
+            </div>
+            <h4 style="color: white; margin: 0; font-size: 0.95rem;">Lado Bom</h4>
+            <p style="color: rgba(255,255,255,0.4); font-size: 0.75rem;">Corretora</p>
+          </div>
+          <div style="text-align: center;">
+            <div style="height: 60px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem;">
+              <img src="src/assets/logo_credito_real.png" alt="Crédito Real" style="height: 100%; max-height: 45px; object-fit: contain; filter: brightness(0) invert(1);">
+            </div>
+            <h4 style="color: white; margin: 0; font-size: 0.95rem;">Crédito Real</h4>
+            <p style="color: rgba(255,255,255,0.4); font-size: 0.75rem;">Imobiliária</p>
+          </div>
+          <div style="text-align: center;">
+            <div style="height: 60px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem;">
+              <img src="src/assets/logo_yelum.webp" alt="Yelum Seguradora" style="height: 100%; max-height: 58px; object-fit: contain; filter: brightness(0) invert(1);">
+            </div>
+            <h4 style="color: white; margin: 0; font-size: 0.95rem;">Yelum</h4>
+            <p style="color: rgba(255,255,255,0.4); font-size: 0.75rem;">Seguradora</p>
+          </div>
+        </div>
+
+        <p style="color: rgba(255,255,255,0.35); font-size: 0.75rem; margin-top: 3rem;">Sinistros: (48) 99935-9366 · contato@ladobomseguros.com.br</p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    (function() {
+      'use strict';
+      const slides = document.querySelectorAll('.slide');
+      const totalSlides = slides.length;
+      let currentSlide = 0;
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const fullscreenBtn = document.getElementById('fullscreen-btn');
+      const slideNum = document.getElementById('slide-num');
+      const progressDots = document.getElementById('progress-dots');
+      const keyboardHint = document.getElementById('keyboard-hint');
+      const drawerToggle = document.getElementById('drawer-toggle');
+      const drawerBackdrop = document.getElementById('drawer-backdrop');
+      const navDrawer = document.getElementById('nav-drawer');
+      const drawerClose = document.getElementById('drawer-close');
+      const drawerMenu = document.getElementById('drawer-menu');
+
+      function initProgressDots() {
+        progressDots.innerHTML = '';
+        for (let i = 0; i < totalSlides; i++) {
+          const dot = document.createElement('div');
+          dot.className = 'progress-dot' + (i === 0 ? ' active' : '');
+          dot.dataset.slide = i;
+          dot.addEventListener('click', () => goToSlide(i));
+          progressDots.appendChild(dot);
+        }
+      }
+
+      function updateUI() {
+        slides.forEach((slide, i) => {
+          slide.classList.remove('active', 'exit-left');
+          if (i === currentSlide) slide.classList.add('active');
+        });
+        prevBtn.disabled = currentSlide === 0;
+        nextBtn.disabled = currentSlide === totalSlides - 1;
+        slideNum.textContent = `${String(currentSlide + 1).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`;
+        document.querySelectorAll('.progress-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+        document.querySelectorAll('.drawer-menu-item').forEach((m, i) => m.classList.toggle('active', i === currentSlide));
+      }
+
+      function goToSlide(index) {
+        if (index < 0 || index >= totalSlides || index === currentSlide) return;
+        slides[currentSlide].classList.add('exit-left');
+        currentSlide = index;
+        updateUI();
+        closeDrawer();
+      }
+
+      prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+      nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goToSlide(currentSlide + 1); }
+        else if (e.key === 'ArrowLeft') { e.preventDefault(); goToSlide(currentSlide - 1); }
+        else if (e.key === 'Escape') closeDrawer();
+      });
+
+      fullscreenBtn.addEventListener('click', () => {
+        if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(() => {});
+        else document.exitFullscreen();
+      });
+
+      function openDrawer() { navDrawer.classList.add('active'); drawerBackdrop.classList.add('active'); }
+      function closeDrawer() { navDrawer.classList.remove('active'); drawerBackdrop.classList.remove('active'); }
+      drawerToggle.addEventListener('click', openDrawer);
+      drawerClose.addEventListener('click', closeDrawer);
+      drawerBackdrop.addEventListener('click', closeDrawer);
+      drawerMenu.querySelectorAll('.drawer-menu-item').forEach(item => {
+        item.addEventListener('click', () => goToSlide(parseInt(item.dataset.slide)));
+      });
+
+      let hintTO = setTimeout(() => keyboardHint.classList.add('hidden'), 5000);
+      const hideHint = () => { keyboardHint.classList.add('hidden'); clearTimeout(hintTO); };
+      document.addEventListener('keydown', hideHint, { once: true });
+      document.addEventListener('click', hideHint, { once: true });
+
+      let tX = 0;
+      document.addEventListener('touchstart', e => tX = e.changedTouches[0].screenX, { passive: true });
+      document.addEventListener('touchend', e => {
+        const d = tX - e.changedTouches[0].screenX;
+        if (Math.abs(d) > 50) { d > 0 ? goToSlide(currentSlide + 1) : goToSlide(currentSlide - 1); }
+      }, { passive: true });
+
+      initProgressDots();
+      updateUI();
+    })();
+  </script>
+</body>
+</html>
